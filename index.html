@@ -11,13 +11,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:        #111111;
-      --black2:       #1c1c1c;
+      --black:        #0d1f3e;
+      --black2:       #172844;
       --white:        #FFFFFF;
       --off:          #F7F5F2;
       --off2:         #EFECE7;
       --border:       #E0DDD8;
-      --border-dark:  #2a2a2a;
+      --border-dark:  #1a3365;
       --silver:       #A8A29E;
       --muted:        #888480;
       --serif: 'Cormorant Garamond', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
@@ -45,7 +45,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 20px 52px;
-      background: rgba(17,17,17,0.95);
+      background: rgba(13,31,62,0.97);
       backdrop-filter: blur(12px);
     }
     .logo {
@@ -62,14 +62,14 @@
       letter-spacing: 0.18em;
       color: var(--silver);
       text-decoration: none;
-      border: 1px solid #333;
+      border: 1px solid rgba(168,162,158,0.3);
       padding: 9px 22px;
       transition: all 0.3s ease;
       text-transform: uppercase;
     }
     .nav-cta:hover { border-color: var(--silver); color: var(--white); }
 
-    /* ── Hero（黒・縦積み） ── */
+    /* ── Hero ── */
     .hero {
       min-height: 100vh;
       background: var(--black);
@@ -83,51 +83,53 @@
       letter-spacing: 0.5em;
       color: var(--silver);
       text-transform: uppercase;
-      margin-bottom: 48px;
+      margin-bottom: 36px;
       display: block;
+    }
+    .hero-price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .hero-price-big {
+      font-family: var(--sans);
+      font-size: clamp(60px, 9vw, 120px);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      font-feature-settings: "lnum", "tnum";
+    }
+    .hero-price-from {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.8vw, 36px);
+      font-weight: 300;
+      color: var(--silver);
+      letter-spacing: 0.05em;
     }
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(40px, 5.5vw, 82px);
+      font-size: clamp(28px, 3.5vw, 52px);
       font-weight: 300;
-      line-height: 1.18;
+      line-height: 1.4;
       color: var(--white);
       letter-spacing: 0.02em;
       margin-bottom: 20px;
-      max-width: 820px;
+      max-width: 680px;
     }
     .hero-sub {
       font-family: var(--serif);
-      font-size: clamp(16px, 1.6vw, 22px);
+      font-size: clamp(15px, 1.5vw, 20px);
       font-weight: 300;
       font-style: italic;
       color: var(--silver);
       letter-spacing: 0.05em;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
-    .hero-rule {
-      width: 48px;
-      height: 1px;
-      background: var(--silver);
-      margin-bottom: 36px;
-      opacity: 0.5;
-    }
-    .hero-story {
-      font-family: var(--serif);
-      font-size: clamp(14px, 1.4vw, 17px);
-      font-weight: 300;
-      color: var(--silver);
-      line-height: 2.1;
-      max-width: 560px;
-      letter-spacing: 0.04em;
-      margin-bottom: 56px;
-    }
-    .hero-story p { margin: 0 0 1.4em; }
-    .hero-story p:last-child { margin-bottom: 0; }
-    .hero-story em { font-style: italic; color: #c8c4c0; }
     .hero-badges {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
       margin-bottom: 44px;
     }
@@ -137,9 +139,29 @@
       font-weight: 400;
       letter-spacing: 0.18em;
       color: var(--silver);
-      border: 1px solid rgba(200, 196, 192, 0.35);
+      border: 1px solid rgba(168,162,158,0.35);
       padding: 7px 18px;
     }
+    .hero-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--silver);
+      margin-bottom: 32px;
+      opacity: 0.4;
+    }
+    .hero-story {
+      font-family: var(--serif);
+      font-size: clamp(14px, 1.4vw, 17px);
+      font-weight: 300;
+      color: var(--silver);
+      line-height: 2.1;
+      max-width: 540px;
+      letter-spacing: 0.04em;
+      margin-bottom: 52px;
+    }
+    .hero-story p { margin: 0 0 1.2em; }
+    .hero-story p:last-child { margin-bottom: 0; }
+    .hero-story em { font-style: italic; color: #c8c4c0; }
     .hero-bottom {
       display: flex;
       align-items: center;
@@ -162,7 +184,7 @@
     .btn-primary:hover { background: var(--off2); letter-spacing: 0.30em; }
     .hero-note {
       font-size: 12px;
-      color: #555;
+      color: #4a6890;
       letter-spacing: 0.02em;
     }
 
@@ -297,116 +319,38 @@
       letter-spacing: 0.05em;
     }
 
-    /* ── Works ── */
-    .works { background: var(--off); }
-    .works-grid {
+    /* ── What You Get ── */
+    .what-you-get { background: var(--off); }
+    .wyg-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      background: var(--black);
-      border: 2px solid var(--black);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
-    .work-card {
-      background: var(--white);
-      padding: 52px 44px;
+    .wyg-item {
+      background: var(--off);
+      padding: 44px 36px;
+      transition: background 0.25s;
     }
-    .work-tag {
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .work-title {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 300;
-      color: var(--black);
-      margin-bottom: 16px;
-    }
-    .work-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 2.0;
-      margin-bottom: 32px;
-    }
-    .work-link {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      color: var(--black);
-      text-decoration: none;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 4px;
-      transition: border-color 0.2s;
-    }
-    .work-link:hover { border-color: var(--black); }
-    .monitor-card {
-      background: var(--black);
-      padding: 52px 44px;
-      display: flex;
-      flex-direction: column;
-    }
-    .monitor-tag {
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      color: var(--silver);
-      text-transform: uppercase;
+    .wyg-item:hover { background: var(--white); }
+    .wyg-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      color: var(--border);
       margin-bottom: 20px;
+      display: block;
+      line-height: 1;
     }
-    .monitor-title {
+    .wyg-title {
       font-family: var(--serif);
-      font-size: 30px;
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 20px;
-      line-height: 1.4;
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 12px;
+      line-height: 1.5;
     }
-    .monitor-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 2.0;
-      margin-bottom: 36px;
-    }
-    .monitor-price {
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-      margin-bottom: 10px;
-    }
-    .monitor-price-new {
-      font-family: var(--sans);
-      font-size: 34px;
-      font-weight: 300;
-      font-feature-settings: "lnum", "tnum";
-      color: var(--white);
-      letter-spacing: 0.01em;
-    }
-    .monitor-price-old {
-      font-size: 13px;
-      color: #444;
-      text-decoration: line-through;
-    }
-    .monitor-slots {
-      font-size: 11px;
-      color: var(--silver);
-      letter-spacing: 0.1em;
-      margin-bottom: 36px;
-    }
-    .btn-outline-white {
-      display: inline-block;
-      align-self: flex-start;
-      padding: 14px 36px;
-      border: 1px solid var(--silver);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-    }
-    .btn-outline-white:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+    .wyg-desc { font-size: 13px; color: var(--muted); line-height: 2.0; }
 
     /* ── Plans ── */
     .plans { background: var(--white); }
@@ -426,12 +370,12 @@
       display: flex;
       flex-direction: column;
     }
-    .plan-card.featured { background: #2e2e2e; }
+    .plan-card.featured { background: #1a3365; }
     .plan-card.featured .plan-badge { color: var(--silver); }
     .plan-card.featured .plan-name { color: var(--white); }
     .plan-card.featured .plan-price { color: var(--white); }
-    .plan-card.featured .plan-desc { color: var(--muted); border-bottom-color: var(--border-dark); }
-    .plan-card.featured .plan-note { color: #666; }
+    .plan-card.featured .plan-desc { color: #8fa8c4; border-bottom-color: #1e3a6e; }
+    .plan-card.featured .plan-note { color: #5a7ca4; }
     .plan-badge {
       font-size: 10px;
       letter-spacing: 0.3em;
@@ -472,7 +416,7 @@
     .card-tip {
       position: absolute;
       inset: 0;
-      background: rgba(17,17,17,0.93);
+      background: rgba(13,31,62,0.93);
       color: #d8d4d0;
       padding: 32px 30px;
       display: flex;
@@ -486,7 +430,7 @@
       pointer-events: none;
     }
     .plan-card.featured .card-tip {
-      background: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.08);
       backdrop-filter: blur(8px);
       color: #e8e4e0;
     }
@@ -526,9 +470,9 @@
       font-size: 13px;
     }
     .cost-row:last-child { border-bottom: none; }
-    .cost-label { color: var(--muted); }
+    .cost-label { color: var(--silver); }
     .cost-value { color: var(--white); font-feature-settings: "lnum"; }
-    .cost-note { font-size: 11px; color: #555; margin-top: 16px; line-height: 1.9; }
+    .cost-note { font-size: 11px; color: #4a6890; margin-top: 16px; line-height: 1.9; }
     .maint-card {
       background: var(--off);
       padding: 44px 36px;
@@ -592,7 +536,7 @@
     .contact .section-title { color: var(--white); margin-bottom: 16px; }
     .contact-sub {
       font-size: 13px;
-      color: var(--muted);
+      color: var(--silver);
       margin-bottom: 52px;
       line-height: 2.2;
       letter-spacing: 0.03em;
@@ -630,8 +574,8 @@
       color: var(--silver);
       text-transform: uppercase;
     }
-    .footer-copy { font-size: 12px; color: #444; }
-    .footer-note { font-size: 12px; color: #444; }
+    .footer-copy { font-size: 12px; color: #4a6890; }
+    .footer-note { font-size: 12px; color: #4a6890; }
 
     /* ── Responsive ── */
     @media (max-width: 1100px) {
@@ -643,14 +587,15 @@
       section { padding: 80px 24px; }
       .hero { padding: 120px 24px 80px; }
       .features-grid { grid-template-columns: 1fr; }
+      .wyg-grid { grid-template-columns: 1fr 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; gap: 40px 0; }
-      .works-grid { grid-template-columns: 1fr; }
       .plans-grid { grid-template-columns: 1fr; }
       .cost-summary { padding: 28px 24px; }
       footer { padding: 36px 24px; }
     }
     @media (max-width: 480px) {
       .process-grid { grid-template-columns: 1fr; }
+      .wyg-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -665,21 +610,25 @@
   <!-- Hero -->
   <section class="hero">
     <p class="hero-label">Web Design for Restaurant</p>
-    <h1>あなたのお店に、<br>新しい入り口を。</h1>
-    <p class="hero-sub">あなたの仕事に、ずっと寄り添います。</p>
+    <div class="hero-price-wrap">
+      <span class="hero-price-big">¥30,000</span>
+      <span class="hero-price-from">から</span>
+    </div>
+    <h1>飲食店のホームページ、<br>作ります。</h1>
+    <p class="hero-sub">現役カフェオーナーが、最短2週間で仕上げます。</p>
     <div class="hero-badges">
       <span class="hero-badge">飲食店専門</span>
+      <span class="hero-badge">打ち合わせ不要</span>
       <span class="hero-badge">最短2週間</span>
-      <span class="hero-badge">¥30,000〜</span>
+      <span class="hero-badge">月2件限定</span>
     </div>
     <div class="hero-rule"></div>
     <div class="hero-story">
-      <p>Silver Skinは、飲食店・個人経営のお店に特化した<em>Web制作代行サービス</em>です。現役のカフェオーナーが運営しているため、メニュー構成・予約導線・スマホ表示など、現場で本当に必要なことを理解し、設計できます。</p>
-      <p>打ち合わせ不要、完全オンライン。フォーム1本で相談いただければ、最短2週間でWebサイトが完成します。</p>
+      <p>Silver Skinは、<em>現役カフェオーナーが運営する</em>飲食店専門のWeb制作代行です。フォーム1本・打ち合わせゼロ・完全オンラインで対応します。</p>
     </div>
     <div class="hero-bottom">
       <a href="#contact" class="btn-primary">無料相談はこちら</a>
-      <p class="hero-note">打ち合わせ不要・完全オンライン / LP 3万円から / 返信2営業日以内</p>
+      <p class="hero-note">返信2営業日以内 / 完全非対面</p>
     </div>
   </section>
 
@@ -756,30 +705,43 @@
     <p class="process-note">最短2週間（シンプルLPの場合）</p>
   </section>
 
-  <!-- Works -->
-  <section class="works" id="works">
+  <!-- What You Get -->
+  <section class="what-you-get">
     <div class="section-eyebrow">
       <div class="section-line"></div>
-      <p class="section-label">Works</p>
+      <p class="section-label">¥30,000 Plan</p>
     </div>
-    <h2 class="section-title">制作<strong>実績</strong></h2>
-    <div class="works-grid">
-      <div class="work-card">
-        <p class="work-tag">Demo — Restaurant / Cafe</p>
-        <p class="work-title">髙見珈琲</p>
-        <p class="work-desc">大阪・中崎町の個人カフェ。メニュー・アクセス・豆の紹介を軸にした飲食店向けスタンダードサイト。Silver Skin 第一号制作実績。</p>
-        <a href="#" class="work-link">View Site →</a>
+    <h2 class="section-title">¥30,000で、<strong>できること。</strong></h2>
+    <div class="wyg-grid">
+      <div class="wyg-item">
+        <span class="wyg-num">01</span>
+        <p class="wyg-title">LP 1枚・オリジナルデザイン</p>
+        <p class="wyg-desc">スマホ・PC完全対応のランディングページを一から制作。テンプレートではなく、お店の雰囲気に合わせたオリジナルデザインです。</p>
       </div>
-      <div class="monitor-card">
-        <p class="monitor-tag">Monitor Pricing — 限定3名</p>
-        <p class="monitor-title">モニター案件、<br>受け付けています。</p>
-        <p class="monitor-desc">実績づくりのため、スタンダードプランをモニター特別価格でご提供しています。事例としてサイトを掲載させていただく条件です。</p>
-        <div class="monitor-price">
-          <span class="monitor-price-new">¥30,000</span>
-          <span class="monitor-price-old">通常 ¥50,000</span>
-        </div>
-        <p class="monitor-slots">残り3枠 / スタンダードプラン相当</p>
-        <a href="#contact" class="btn-outline-white">詳細・お申し込み</a>
+      <div class="wyg-item">
+        <span class="wyg-num">02</span>
+        <p class="wyg-title">ドメイン・サーバー設定込み</p>
+        <p class="wyg-desc">公開までの技術的な作業はすべてこちらで対応します。難しい設定は一切不要。URLが届いたら、すぐ公開できます。</p>
+      </div>
+      <div class="wyg-item">
+        <span class="wyg-num">03</span>
+        <p class="wyg-title">Googleマップ・SNS連携</p>
+        <p class="wyg-desc">来店につながる導線を最初から設計。Instagram・X・Googleマップへのリンクも設置します。</p>
+      </div>
+      <div class="wyg-item">
+        <span class="wyg-num">04</span>
+        <p class="wyg-title">お問い合わせフォーム付き</p>
+        <p class="wyg-desc">サイトから直接メッセージが届く仕組みを標準で設置します。予約・問い合わせをサイトで受け付けられます。</p>
+      </div>
+      <div class="wyg-item">
+        <span class="wyg-num">05</span>
+        <p class="wyg-title">修正2回まで無料</p>
+        <p class="wyg-desc">納品後に気になる点があれば2回まで対応します。事前のヒアリングで大きな修正はほぼ発生しません。</p>
+      </div>
+      <div class="wyg-item">
+        <span class="wyg-num">06</span>
+        <p class="wyg-title">最短2週間で公開</p>
+        <p class="wyg-desc">忙しい営業の合間でも大丈夫。スマホだけで完結するやりとりで、素早く公開まで進めます。</p>
       </div>
     </div>
   </section>
@@ -796,7 +758,7 @@
         <p class="plan-badge">Simple</p>
         <p class="plan-name">シンプルLP</p>
         <p class="plan-desc">LP 1枚。まずはWebに存在感を出したい方に。お店の基本情報・メニュー・問い合わせをシンプルにまとめます。</p>
-        <p class="plan-price">¥30,000<span>〜（税別）</span></p>
+        <p class="plan-price">¥30,000<span>（税別）</span></p>
         <p class="plan-note">1ページ構成 / スマホ対応 / 問い合わせフォーム付き</p>
         <div class="card-tip">SNSのプロフィールに貼るだけで集客の起点になります。「まずホームページを持ちたい」という方に最適なスタートプランです。制作期間は最短1〜2週間。</div>
       </div>
@@ -804,7 +766,7 @@
         <p class="plan-badge">Standard — おすすめ</p>
         <p class="plan-name">スタンダード</p>
         <p class="plan-desc">複数ページの本格サイト。お店の情報をしっかり伝えたい方に。トップ・メニュー・アクセス・お知らせなど構成します。</p>
-        <p class="plan-price">¥50,000<span>〜（税別）</span></p>
+        <p class="plan-price">¥50,000<span>（税別）</span></p>
         <p class="plan-note">3〜5ページ構成 / スマホ対応 / Googleマップ・SNS連携</p>
         <div class="card-tip">複数ページでお店の魅力をしっかり伝えられます。Googleで「地域名＋業種」と検索されたときにしっかり表示されます。制作期間は3〜4週間。</div>
       </div>
