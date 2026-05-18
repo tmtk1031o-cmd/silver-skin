@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silver Skin — 飲食店専門Web制作</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Noto+Serif+JP:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:        #111111;
+      --black2:       #1c1c1c;
+      --white:        #FFFFFF;
+      --off:          #F7F5F2;
+      --off2:         #EFECE7;
+      --border:       #E0DDD8;
+      --border-dark:  #2a2a2a;
+      --silver:       #A8A29E;
+      --muted:        #888480;
+      --serif: 'Cormorant Garamond', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+      --sans:  'Inter', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      font-feature-settings: "lnum";
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 52px;
+      background: rgba(17,17,17,0.95);
+      backdrop-filter: blur(12px);
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0.30em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .logo span { color: var(--silver); font-weight: 300; }
+    .nav-cta {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--silver);
+      text-decoration: none;
+      border: 1px solid #333;
+      padding: 9px 22px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    .nav-cta:hover { border-color: var(--silver); color: var(--white); }
+
+    /* ── Hero（黒・縦積み） ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px 52px 100px;
+    }
+    .hero-label {
+      font-size: 10px;
+      letter-spacing: 0.5em;
+      color: var(--silver);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      display: block;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5.5vw, 82px);
+      font-weight: 300;
+      line-height: 1.18;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+      max-width: 820px;
+    }
+    .hero-sub {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.6vw, 22px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--silver);
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .hero-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--silver);
+      margin-bottom: 36px;
+      opacity: 0.5;
+    }
+    .hero-story {
+      font-family: var(--serif);
+      font-size: clamp(14px, 1.4vw, 17px);
+      font-weight: 300;
+      color: var(--silver);
+      line-height: 2.1;
+      max-width: 560px;
+      letter-spacing: 0.04em;
+      margin-bottom: 56px;
+    }
+    .hero-story p { margin: 0 0 1.4em; }
+    .hero-story p:last-child { margin-bottom: 0; }
+    .hero-story em { font-style: italic; color: #c8c4c0; }
+    .hero-badges {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+    .hero-badge {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--silver);
+      border: 1px solid rgba(200, 196, 192, 0.35);
+      padding: 7px 18px;
+    }
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 18px 52px;
+      background: var(--white);
+      color: var(--black);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--off2); letter-spacing: 0.30em; }
+    .hero-note {
+      font-size: 12px;
+      color: #555;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Section base ── */
+    section { padding: 112px 52px; }
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .section-line {
+      width: 28px; height: 1px;
+      background: var(--black);
+      flex-shrink: 0;
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.5em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 3.5vw, 50px);
+      font-weight: 300;
+      color: var(--black);
+      margin-bottom: 72px;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+    .section-title strong { font-weight: 500; }
+
+    /* ── Features ── */
+    .features { background: var(--off); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .feature-item {
+      background: var(--off);
+      padding: 52px 44px;
+      transition: background 0.25s;
+    }
+    .feature-item:hover { background: var(--white); }
+    .feature-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--border);
+      margin-bottom: 28px;
+      line-height: 1;
+    }
+    .feature-item h3 {
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .feature-item p { font-size: 13px; color: var(--muted); line-height: 2.0; }
+
+    /* ── Process ── */
+    .process { background: var(--white); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      position: relative;
+    }
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 31px;
+      left: calc(10% + 16px);
+      right: calc(10% + 16px);
+      height: 1px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .process-step {
+      padding: 0 20px 0;
+      text-align: center;
+    }
+    .process-num-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .process-num {
+      width: 62px;
+      height: 62px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--black);
+      background: var(--white);
+      transition: all 0.25s;
+    }
+    .process-step:hover .process-num {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+    .process-step h4 {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .process-step p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .process-note {
+      margin-top: 52px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Works ── */
+    .works { background: var(--off); }
+    .works-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--black);
+      border: 2px solid var(--black);
+    }
+    .work-card {
+      background: var(--white);
+      padding: 52px 44px;
+    }
+    .work-tag {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .work-title {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+    .work-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 2.0;
+      margin-bottom: 32px;
+    }
+    .work-link {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--black);
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+      transition: border-color 0.2s;
+    }
+    .work-link:hover { border-color: var(--black); }
+    .monitor-card {
+      background: var(--black);
+      padding: 52px 44px;
+      display: flex;
+      flex-direction: column;
+    }
+    .monitor-tag {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--silver);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .monitor-title {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .monitor-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 2.0;
+      margin-bottom: 36px;
+    }
+    .monitor-price {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .monitor-price-new {
+      font-family: var(--sans);
+      font-size: 34px;
+      font-weight: 300;
+      font-feature-settings: "lnum", "tnum";
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+    .monitor-price-old {
+      font-size: 13px;
+      color: #444;
+      text-decoration: line-through;
+    }
+    .monitor-slots {
+      font-size: 11px;
+      color: var(--silver);
+      letter-spacing: 0.1em;
+      margin-bottom: 36px;
+    }
+    .btn-outline-white {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 14px 36px;
+      border: 1px solid var(--silver);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-white:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+
+    /* ── Plans ── */
+    .plans { background: var(--white); }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--black);
+      border: 2px solid var(--black);
+    }
+    .plan-card {
+      background: var(--white);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .plan-card.featured { background: #2e2e2e; }
+    .plan-card.featured .plan-badge { color: var(--silver); }
+    .plan-card.featured .plan-name { color: var(--white); }
+    .plan-card.featured .plan-price { color: var(--white); }
+    .plan-card.featured .plan-desc { color: var(--muted); border-bottom-color: var(--border-dark); }
+    .plan-card.featured .plan-note { color: #666; }
+    .plan-badge {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .plan-name {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--black);
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .plan-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.9;
+      flex: 1;
+    }
+    .plan-price {
+      font-family: var(--sans);
+      font-size: 28px;
+      font-weight: 300;
+      font-feature-settings: "lnum", "tnum";
+      color: var(--black);
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+    .plan-price span { font-size: 13px; color: var(--muted); }
+    .plan-note { font-size: 12px; color: var(--muted); }
+
+    /* ── カードホバー解説 ── */
+    .card-tip {
+      position: absolute;
+      inset: 0;
+      background: rgba(17,17,17,0.93);
+      color: #d8d4d0;
+      padding: 32px 30px;
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      line-height: 1.95;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      pointer-events: none;
+    }
+    .plan-card.featured .card-tip {
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(8px);
+      color: #e8e4e0;
+    }
+    .plan-card:hover .card-tip,
+    .maint-card:hover .card-tip { opacity: 1; transform: translateY(0); }
+
+    /* ── Maintenance ── */
+    .maintenance { background: var(--off); }
+    .maint-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--black);
+      border: 2px solid var(--black);
+    }
+    .maint-card {
+      background: var(--off);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .maint-name {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+    .maint-list { list-style: none; margin-bottom: 32px; flex: 1; }
+    .maint-list li {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      line-height: 1.7;
+    }
+    .maint-list li::before { content: '—'; color: var(--border); flex-shrink: 0; margin-top: 2px; }
+    .maint-price {
+      font-family: var(--sans);
+      font-size: 24px;
+      font-weight: 300;
+      font-feature-settings: "lnum", "tnum";
+      color: var(--black);
+      letter-spacing: 0.01em;
+    }
+    .maint-price span { font-size: 13px; color: var(--muted); }
+
+    /* ── FAQ ── */
+    .faq { background: var(--white); }
+    .faq-list { max-width: 740px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 36px 0; }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .faq-a { font-size: 13px; color: var(--muted); line-height: 2.0; }
+
+    /* ── Contact ── */
+    .contact {
+      background: var(--black);
+      text-align: center;
+      padding: 120px 52px;
+    }
+    .contact .section-line { background: var(--silver); }
+    .contact .section-label { color: var(--silver); }
+    .contact .section-eyebrow { justify-content: center; }
+    .contact .section-title { color: var(--white); margin-bottom: 16px; }
+    .contact-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 52px;
+      line-height: 2.2;
+      letter-spacing: 0.03em;
+    }
+    .btn-secondary {
+      display: inline-block;
+      padding: 18px 60px;
+      border: 1px solid var(--silver);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--black2);
+      padding: 44px 52px;
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.30em;
+      color: var(--silver);
+      text-transform: uppercase;
+    }
+    .footer-copy { font-size: 12px; color: #444; }
+    .footer-note { font-size: 12px; color: #444; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .process-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 0; }
+      .process-grid::before { display: none; }
+      .plans-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 18px 24px; }
+      section { padding: 80px 24px; }
+      .hero { padding: 120px 24px 80px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; gap: 40px 0; }
+      .works-grid { grid-template-columns: 1fr; }
+      .plans-grid { grid-template-columns: 1fr; }
+      .maint-grid { grid-template-columns: 1fr; }
+      footer { padding: 36px 24px; }
+    }
+    @media (max-width: 480px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="logo">Silver <span>Skin</span></div>
+    <a href="#contact" class="nav-cta">無料相談</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-label">Web Design for Restaurant</p>
+    <h1>あなたのお店に、<br>新しい入り口を。</h1>
+    <p class="hero-sub">あなたの仕事に、ずっと寄り添います。</p>
+    <div class="hero-badges">
+      <span class="hero-badge">飲食店専門</span>
+      <span class="hero-badge">最短2週間</span>
+      <span class="hero-badge">¥50,000〜</span>
+    </div>
+    <div class="hero-rule"></div>
+    <div class="hero-story">
+      <p>Silver Skinは、飲食店・個人経営のお店に特化した<em>Web制作代行サービス</em>です。現役のカフェオーナーが運営しているため、メニュー構成・予約導線・スマホ表示など、現場で本当に必要なことを理解し、設計できます。</p>
+      <p>打ち合わせ不要、完全オンライン。フォーム1本で相談いただければ、最短2週間でWebサイトが完成します。</p>
+    </div>
+    <div class="hero-bottom">
+      <a href="#contact" class="btn-primary">無料相談はこちら</a>
+      <p class="hero-note">打ち合わせ不要・完全オンライン / LP 5万円から / 返信2営業日以内</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="section-eyebrow">
+      <div class="section-line"></div>
+      <p class="section-label">Why Silver Skin</p>
+    </div>
+    <h2 class="section-title">選ばれる<strong>3つの理由</strong></h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <p class="feature-num">01</p>
+        <h3>現場を知っている人間が、<br>つくります。</h3>
+        <p>予約導線・メニュー写真・スマホ表示——実際に店を運営しているから、使う側の視点で設計できます。</p>
+      </div>
+      <div class="feature-item">
+        <p class="feature-num">02</p>
+        <h3>打ち合わせゼロ、<br>完全オンラインだから低価格。</h3>
+        <p>中間コストを削ぎ落とし、LP 5万円・基本サイト15万円から。追加費用なし・明瞭会計。</p>
+      </div>
+      <div class="feature-item">
+        <p class="feature-num">03</p>
+        <h3>フォーム1本で、<br>最短2週間でオープン。</h3>
+        <p>忙しい営業の合間でもOK。スマホでやりとりするだけで、サイトが届きます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process">
+    <div class="section-eyebrow">
+      <div class="section-line"></div>
+      <p class="section-label">How it Works</p>
+    </div>
+    <h2 class="section-title"><strong>制作の流れ</strong></h2>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num-wrap">
+          <div class="process-num">01</div>
+        </div>
+        <h4>フォーム送信</h4>
+        <p>お問い合わせフォームからご要望をお送りください。2営業日以内にご連絡します。</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num-wrap">
+          <div class="process-num">02</div>
+        </div>
+        <h4>ヒアリング</h4>
+        <p>メール・チャットにてお店の詳細をお伺いします。打ち合わせは不要です。</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num-wrap">
+          <div class="process-num">03</div>
+        </div>
+        <h4>初稿提出</h4>
+        <p>デザイン・テキストを組み上げた初稿をご確認いただきます。</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num-wrap">
+          <div class="process-num">04</div>
+        </div>
+        <h4>修正・確認</h4>
+        <p>ご意見をもとに修正します。修正は2回まで含まれています。</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num-wrap">
+          <div class="process-num">05</div>
+        </div>
+        <h4>公開・完成</h4>
+        <p>サーバー設定・公開作業まで対応。公開後は保守プランでサポートを継続します。</p>
+      </div>
+    </div>
+    <p class="process-note">最短2週間（ライトプランの場合）</p>
+  </section>
+
+  <!-- Works -->
+  <section class="works" id="works">
+    <div class="section-eyebrow">
+      <div class="section-line"></div>
+      <p class="section-label">Works</p>
+    </div>
+    <h2 class="section-title">制作<strong>実績</strong></h2>
+    <div class="works-grid">
+      <div class="work-card">
+        <p class="work-tag">Demo — Restaurant / Cafe</p>
+        <p class="work-title">髙見珈琲</p>
+        <p class="work-desc">大阪・中崎町の個人カフェ。メニュー・アクセス・豆の紹介を軸にした飲食店向けスタンダードサイト。Silver Skin 第一号制作実績。</p>
+        <a href="#" class="work-link">View Site →</a>
+      </div>
+      <div class="monitor-card">
+        <p class="monitor-tag">Monitor Pricing — 限定3名</p>
+        <p class="monitor-title">モニター案件、<br>受け付けています。</p>
+        <p class="monitor-desc">実績づくりのため、現在モニター価格でのご依頼を受け付けています。通常のライトプランを特別価格でご提供できます。</p>
+        <div class="monitor-price">
+          <span class="monitor-price-new">¥30,000</span>
+          <span class="monitor-price-old">通常 ¥50,000</span>
+        </div>
+        <p class="monitor-slots">残り3枠 / LP 1ページ構成</p>
+        <a href="#contact" class="btn-outline-white">詳細・お申し込み</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section class="plans" id="plans">
+    <div class="section-eyebrow">
+      <div class="section-line"></div>
+      <p class="section-label">Pricing</p>
+    </div>
+    <h2 class="section-title"><strong>制作プラン</strong></h2>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <p class="plan-badge">Light</p>
+        <p class="plan-name">ライト</p>
+        <p class="plan-desc">LP 1枚。まずはここから始めたい方に。</p>
+        <p class="plan-price">¥50,000<span>〜（税別）</span></p>
+        <p class="plan-note">1ページ構成 / 問い合わせフォーム付き</p>
+        <div class="card-tip">お店の基本情報・メニュー・問い合わせを1ページにまとめたシンプルなサイトです。SNSのプロフィールに貼るだけでも集客の起点になります。まずWebに存在感を出したい方に。</div>
+      </div>
+      <div class="plan-card featured">
+        <p class="plan-badge">Standard — 人気</p>
+        <p class="plan-name">スタンダード</p>
+        <p class="plan-desc">基本サイト 5〜8ページ。お店の情報をしっかり伝えたい方に。</p>
+        <p class="plan-price">¥150,000<span>〜（税別）</span></p>
+        <p class="plan-note">メニュー・アクセス・SNS連携 等</p>
+        <div class="card-tip">トップページ・メニュー・アクセス・お知らせ・問い合わせなど、複数ページの本格サイトです。Googleで「地域名＋業種」と検索されたときにしっかり表示されます。最も選ばれるプランです。</div>
+      </div>
+      <div class="plan-card">
+        <p class="plan-badge">Premium</p>
+        <p class="plan-name">プレミアム</p>
+        <p class="plan-desc">フルサイト＋検索対策。Googleから集客したい方に。</p>
+        <p class="plan-price">¥280,000<span>〜（税別）</span></p>
+        <p class="plan-note">検索上位対策 / 表示速度最適化</p>
+        <div class="card-tip">スタンダードの内容に加え、Googleで上位に表示されやすくなる対策込み。「近くのカフェ」「〇〇市 ランチ」で検索されたときに上に出やすくなります。ページの読み込み速度の最適化も含みます。</div>
+      </div>
+      <div class="plan-card">
+        <p class="plan-badge">Full</p>
+        <p class="plan-name">フル</p>
+        <p class="plan-desc">ネット販売＋ブランドデザイン込みのフルパッケージ。</p>
+        <p class="plan-price">¥400,000<span>〜（税別）</span></p>
+        <p class="plan-note">オンライン販売 / ロゴ・名刺デザイン込み</p>
+        <div class="card-tip">豆やグッズをネットで販売できるショップ機能と、ロゴ・名刺などのブランドデザインまで含めたフルパッケージです。ゼロからお店のブランドを作りたい方向け。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Maintenance -->
+  <section class="maintenance">
+    <div class="section-eyebrow">
+      <div class="section-line"></div>
+      <p class="section-label">Monthly</p>
+    </div>
+    <h2 class="section-title"><strong>月額保守プラン</strong></h2>
+    <p style="margin-bottom: 40px; font-size: 13px; color: var(--muted); line-height: 2.0;">Silver Skinでは、ドメイン・サーバーの管理を含めた運用をお任せいただくため、<br>制作プランとあわせて月額保守プランへのご加入をお願いしています。</p>
+    <div class="maint-grid">
+      <div class="maint-card">
+        <p class="maint-name">ミニ</p>
+        <ul class="maint-list">
+          <li>テキスト・画像の更新 月2回まで</li>
+          <li>セキュリティ・定期メンテナンス</li>
+          <li>メール問い合わせ対応（3営業日以内）</li>
+        </ul>
+        <p class="maint-price">¥5,500<span>／月（税別）</span></p>
+        <div class="card-tip">メニューの値段や営業時間が変わったとき、月2回まで内容を修正します。またサイトを安全な状態に保つ定期的なメンテナンス作業も毎月行います。</div>
+      </div>
+      <div class="maint-card">
+        <p class="maint-name">レギュラー</p>
+        <ul class="maint-list">
+          <li>テキスト・画像の更新 月5回まで</li>
+          <li>メニュー・営業時間・お知らせ更新</li>
+          <li>セキュリティ・定期メンテナンス</li>
+          <li>メール問い合わせ対応（2営業日以内）</li>
+        </ul>
+        <p class="maint-price">¥11,000<span>／月（税別）</span></p>
+        <div class="card-tip">月5回まで内容を変更できます。季節メニューの追加・営業時間の変更・お知らせの投稿など、こまめな更新が必要なお店におすすめです。</div>
+      </div>
+      <div class="maint-card">
+        <p class="maint-name">マックス</p>
+        <ul class="maint-list">
+          <li>更新・修正 回数無制限</li>
+          <li>ページ追加・デザイン微調整</li>
+          <li>セキュリティ・定期メンテナンス</li>
+          <li>優先対応（翌営業日以内）</li>
+          <li>月次アクセスレポート</li>
+        </ul>
+        <p class="maint-price">¥22,000<span>／月（税別）</span></p>
+        <div class="card-tip">変更の回数制限なし。ページを増やしたい・見た目を少し変えたいなど幅広く対応します。毎月どれくらいの方がサイトを訪問したかレポートでお伝えします。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="section-eyebrow">
+      <div class="section-line"></div>
+      <p class="section-label">FAQ</p>
+    </div>
+    <h2 class="section-title"><strong>よくある質問</strong></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <p class="faq-q">打ち合わせは必要ですか？</p>
+        <p class="faq-a">不要です。フォームでのヒアリングとチャットのみで完結します。お店を休んで来ていただく必要はありません。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">制作期間はどれくらいですか？</p>
+        <p class="faq-a">ライトプランで最短1〜2週間、スタンダードで約3〜4週間が目安です。ヒアリング内容の確認速度によって前後します。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">写真やテキストはこちらで用意が必要ですか？</p>
+        <p class="faq-a">基本的にはお客様にご用意いただきます。スマホで撮影した写真でも問題ありません。テキストはヒアリングをもとにこちらで草案をご提案することも可能です。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">飲食店以外でも依頼できますか？</p>
+        <p class="faq-a">はい、個人事業主・中小企業であればお受けしています。ただし飲食店への制作実績が最も豊富です。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">保守プランは必須ですか？</p>
+        <p class="faq-a">必須ではありませんが、セキュリティ維持や情報更新のためにご加入をおすすめしています。制作完了後にご検討いただけます。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">支払い方法は？</p>
+        <p class="faq-a">銀行振込にて承ります。制作プランは着手時50%・納品時50%の2回払いです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="section-eyebrow">
+      <div class="section-line"></div>
+      <p class="section-label">Contact</p>
+    </div>
+    <h2 class="section-title"><strong>無料相談</strong>はこちらから</h2>
+    <p class="contact-sub">
+      フォームにてご要望をお聞きします。<br>
+      返信は2営業日以内。まずはお気軽にどうぞ。
+    </p>
+    <a href="https://forms.google.com/" target="_blank" class="btn-secondary">お問い合わせフォームへ</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-logo">Silver Skin</p>
+    <p class="footer-note">飲食店・個人事業主専門のWeb制作</p>
+    <p class="footer-copy">&copy; 2026 Silver Skin</p>
+  </footer>
+
+</body>
+</html>
