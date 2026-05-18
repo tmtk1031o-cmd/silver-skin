@@ -412,10 +412,11 @@
     .plans { background: var(--white); }
     .plans-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2px;
       background: var(--black);
       border: 2px solid var(--black);
+      max-width: 860px;
     }
     .plan-card {
       background: var(--white);
@@ -496,11 +497,38 @@
     .maintenance { background: var(--off); }
     .maint-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 2px;
       background: var(--black);
       border: 2px solid var(--black);
+      max-width: 860px;
     }
+    .cost-summary {
+      max-width: 860px;
+      margin-top: 48px;
+      padding: 36px 44px;
+      background: var(--black);
+      color: var(--white);
+    }
+    .cost-summary-title {
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      color: var(--silver);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-dark);
+      font-size: 13px;
+    }
+    .cost-row:last-child { border-bottom: none; }
+    .cost-label { color: var(--muted); }
+    .cost-value { color: var(--white); font-feature-settings: "lnum"; }
+    .cost-note { font-size: 11px; color: #555; margin-top: 16px; line-height: 1.9; }
     .maint-card {
       background: var(--off);
       padding: 44px 36px;
@@ -609,7 +637,6 @@
     @media (max-width: 1100px) {
       .process-grid { grid-template-columns: repeat(3, 1fr); gap: 40px 0; }
       .process-grid::before { display: none; }
-      .plans-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       nav { padding: 18px 24px; }
@@ -619,7 +646,7 @@
       .process-grid { grid-template-columns: 1fr 1fr; gap: 40px 0; }
       .works-grid { grid-template-columns: 1fr; }
       .plans-grid { grid-template-columns: 1fr; }
-      .maint-grid { grid-template-columns: 1fr; }
+      .cost-summary { padding: 28px 24px; }
       footer { padding: 36px 24px; }
     }
     @media (max-width: 480px) {
@@ -643,7 +670,7 @@
     <div class="hero-badges">
       <span class="hero-badge">飲食店専門</span>
       <span class="hero-badge">最短2週間</span>
-      <span class="hero-badge">¥50,000〜</span>
+      <span class="hero-badge">¥30,000〜</span>
     </div>
     <div class="hero-rule"></div>
     <div class="hero-story">
@@ -652,7 +679,7 @@
     </div>
     <div class="hero-bottom">
       <a href="#contact" class="btn-primary">無料相談はこちら</a>
-      <p class="hero-note">打ち合わせ不要・完全オンライン / LP 5万円から / 返信2営業日以内</p>
+      <p class="hero-note">打ち合わせ不要・完全オンライン / LP 3万円から / 返信2営業日以内</p>
     </div>
   </section>
 
@@ -672,7 +699,7 @@
       <div class="feature-item">
         <p class="feature-num">02</p>
         <h3>打ち合わせゼロ、<br>完全オンラインだから低価格。</h3>
-        <p>中間コストを削ぎ落とし、LP 5万円・基本サイト15万円から。追加費用なし・明瞭会計。</p>
+        <p>中間コストを削ぎ落とし、シンプルLP 3万円・スタンダード 5万円から。追加費用なし・明瞭会計。</p>
       </div>
       <div class="feature-item">
         <p class="feature-num">03</p>
@@ -726,7 +753,7 @@
         <p>サーバー設定・公開作業まで対応。公開後は保守プランでサポートを継続します。</p>
       </div>
     </div>
-    <p class="process-note">最短2週間（ライトプランの場合）</p>
+    <p class="process-note">最短2週間（シンプルLPの場合）</p>
   </section>
 
   <!-- Works -->
@@ -746,12 +773,12 @@
       <div class="monitor-card">
         <p class="monitor-tag">Monitor Pricing — 限定3名</p>
         <p class="monitor-title">モニター案件、<br>受け付けています。</p>
-        <p class="monitor-desc">実績づくりのため、現在モニター価格でのご依頼を受け付けています。通常のライトプランを特別価格でご提供できます。</p>
+        <p class="monitor-desc">実績づくりのため、スタンダードプランをモニター特別価格でご提供しています。事例としてサイトを掲載させていただく条件です。</p>
         <div class="monitor-price">
           <span class="monitor-price-new">¥30,000</span>
           <span class="monitor-price-old">通常 ¥50,000</span>
         </div>
-        <p class="monitor-slots">残り3枠 / LP 1ページ構成</p>
+        <p class="monitor-slots">残り3枠 / スタンダードプラン相当</p>
         <a href="#contact" class="btn-outline-white">詳細・お申し込み</a>
       </div>
     </div>
@@ -766,36 +793,20 @@
     <h2 class="section-title"><strong>制作プラン</strong></h2>
     <div class="plans-grid">
       <div class="plan-card">
-        <p class="plan-badge">Light</p>
-        <p class="plan-name">ライト</p>
-        <p class="plan-desc">LP 1枚。まずはここから始めたい方に。</p>
-        <p class="plan-price">¥50,000<span>〜（税別）</span></p>
-        <p class="plan-note">1ページ構成 / 問い合わせフォーム付き</p>
-        <div class="card-tip">お店の基本情報・メニュー・問い合わせを1ページにまとめたシンプルなサイトです。SNSのプロフィールに貼るだけでも集客の起点になります。まずWebに存在感を出したい方に。</div>
+        <p class="plan-badge">Simple</p>
+        <p class="plan-name">シンプルLP</p>
+        <p class="plan-desc">LP 1枚。まずはWebに存在感を出したい方に。お店の基本情報・メニュー・問い合わせをシンプルにまとめます。</p>
+        <p class="plan-price">¥30,000<span>〜（税別）</span></p>
+        <p class="plan-note">1ページ構成 / スマホ対応 / 問い合わせフォーム付き</p>
+        <div class="card-tip">SNSのプロフィールに貼るだけで集客の起点になります。「まずホームページを持ちたい」という方に最適なスタートプランです。制作期間は最短1〜2週間。</div>
       </div>
       <div class="plan-card featured">
-        <p class="plan-badge">Standard — 人気</p>
+        <p class="plan-badge">Standard — おすすめ</p>
         <p class="plan-name">スタンダード</p>
-        <p class="plan-desc">基本サイト 5〜8ページ。お店の情報をしっかり伝えたい方に。</p>
-        <p class="plan-price">¥150,000<span>〜（税別）</span></p>
-        <p class="plan-note">メニュー・アクセス・SNS連携 等</p>
-        <div class="card-tip">トップページ・メニュー・アクセス・お知らせ・問い合わせなど、複数ページの本格サイトです。Googleで「地域名＋業種」と検索されたときにしっかり表示されます。最も選ばれるプランです。</div>
-      </div>
-      <div class="plan-card">
-        <p class="plan-badge">Premium</p>
-        <p class="plan-name">プレミアム</p>
-        <p class="plan-desc">フルサイト＋検索対策。Googleから集客したい方に。</p>
-        <p class="plan-price">¥280,000<span>〜（税別）</span></p>
-        <p class="plan-note">検索上位対策 / 表示速度最適化</p>
-        <div class="card-tip">スタンダードの内容に加え、Googleで上位に表示されやすくなる対策込み。「近くのカフェ」「〇〇市 ランチ」で検索されたときに上に出やすくなります。ページの読み込み速度の最適化も含みます。</div>
-      </div>
-      <div class="plan-card">
-        <p class="plan-badge">Full</p>
-        <p class="plan-name">フル</p>
-        <p class="plan-desc">ネット販売＋ブランドデザイン込みのフルパッケージ。</p>
-        <p class="plan-price">¥400,000<span>〜（税別）</span></p>
-        <p class="plan-note">オンライン販売 / ロゴ・名刺デザイン込み</p>
-        <div class="card-tip">豆やグッズをネットで販売できるショップ機能と、ロゴ・名刺などのブランドデザインまで含めたフルパッケージです。ゼロからお店のブランドを作りたい方向け。</div>
+        <p class="plan-desc">複数ページの本格サイト。お店の情報をしっかり伝えたい方に。トップ・メニュー・アクセス・お知らせなど構成します。</p>
+        <p class="plan-price">¥50,000<span>〜（税別）</span></p>
+        <p class="plan-note">3〜5ページ構成 / スマホ対応 / Googleマップ・SNS連携</p>
+        <div class="card-tip">複数ページでお店の魅力をしっかり伝えられます。Googleで「地域名＋業種」と検索されたときにしっかり表示されます。制作期間は3〜4週間。</div>
       </div>
     </div>
   </section>
@@ -810,38 +821,33 @@
     <p style="margin-bottom: 40px; font-size: 13px; color: var(--muted); line-height: 2.0;">Silver Skinでは、ドメイン・サーバーの管理を含めた運用をお任せいただくため、<br>制作プランとあわせて月額保守プランへのご加入をお願いしています。</p>
     <div class="maint-grid">
       <div class="maint-card">
-        <p class="maint-name">ミニ</p>
+        <p class="maint-name">保守プラン</p>
         <ul class="maint-list">
-          <li>テキスト・画像の更新 月2回まで</li>
-          <li>セキュリティ・定期メンテナンス</li>
-          <li>メール問い合わせ対応（3営業日以内）</li>
-        </ul>
-        <p class="maint-price">¥5,500<span>／月（税別）</span></p>
-        <div class="card-tip">メニューの値段や営業時間が変わったとき、月2回まで内容を修正します。またサイトを安全な状態に保つ定期的なメンテナンス作業も毎月行います。</div>
-      </div>
-      <div class="maint-card">
-        <p class="maint-name">レギュラー</p>
-        <ul class="maint-list">
-          <li>テキスト・画像の更新 月5回まで</li>
+          <li>テキスト・画像の更新 月5回まで（超過¥1,000/回）</li>
           <li>メニュー・営業時間・お知らせ更新</li>
-          <li>セキュリティ・定期メンテナンス</li>
+          <li>ドメイン・サーバー管理込み</li>
           <li>メール問い合わせ対応（2営業日以内）</li>
         </ul>
-        <p class="maint-price">¥11,000<span>／月（税別）</span></p>
-        <div class="card-tip">月5回まで内容を変更できます。季節メニューの追加・営業時間の変更・お知らせの投稿など、こまめな更新が必要なお店におすすめです。</div>
+        <p class="maint-price">¥5,500<span>／月（税別）</span></p>
+        <div class="card-tip">Silver Skinではドメイン・サーバーの管理もまとめてお任せいただくため、制作プランとあわせて保守プランへのご加入をお願いしています。更新依頼はメールのみ受付。月5回を超えた場合は1回¥1,000で対応します。</div>
       </div>
-      <div class="maint-card">
-        <p class="maint-name">マックス</p>
-        <ul class="maint-list">
-          <li>更新・修正 回数無制限</li>
-          <li>ページ追加・デザイン微調整</li>
-          <li>セキュリティ・定期メンテナンス</li>
-          <li>優先対応（翌営業日以内）</li>
-          <li>月次アクセスレポート</li>
-        </ul>
-        <p class="maint-price">¥22,000<span>／月（税別）</span></p>
-        <div class="card-tip">変更の回数制限なし。ページを増やしたい・見た目を少し変えたいなど幅広く対応します。毎月どれくらいの方がサイトを訪問したかレポートでお伝えします。</div>
+    </div>
+
+    <div class="cost-summary">
+      <p class="cost-summary-title">月々かかる費用の目安</p>
+      <div class="cost-row">
+        <span class="cost-label">制作費（一括 or 2回払い）</span>
+        <span class="cost-value">¥30,000〜 / ¥50,000〜</span>
       </div>
+      <div class="cost-row">
+        <span class="cost-label">保守プラン（毎月・必須）</span>
+        <span class="cost-value">¥5,500 / 月</span>
+      </div>
+      <div class="cost-row">
+        <span class="cost-label">超過更新（月5回を超えた場合）</span>
+        <span class="cost-value">¥1,000 / 回</span>
+      </div>
+      <p class="cost-note">※ 制作費は着手時50%・納品時50%の2回払い（銀行振込）<br>※ 保守プランは毎月月初に銀行振込</p>
     </div>
   </section>
 
@@ -859,7 +865,7 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">制作期間はどれくらいですか？</p>
-        <p class="faq-a">ライトプランで最短1〜2週間、スタンダードで約3〜4週間が目安です。ヒアリング内容の確認速度によって前後します。</p>
+        <p class="faq-a">シンプルLPで最短1〜2週間、スタンダードで約3〜4週間が目安です。ヒアリング内容の確認速度によって前後します。</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">写真やテキストはこちらで用意が必要ですか？</p>
@@ -871,7 +877,7 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">保守プランは必須ですか？</p>
-        <p class="faq-a">必須ではありませんが、セキュリティ維持や情報更新のためにご加入をおすすめしています。制作完了後にご検討いただけます。</p>
+        <p class="faq-a">はい、必須です。Silver Skinではドメイン・サーバーの管理をまとめてお任せいただく形をとっているため、制作プランとあわせてご加入をお願いしています。月々¥5,500（税別）です。</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">支払い方法は？</p>
