@@ -60,8 +60,60 @@
       letter-spacing: 0.30em;
       color: var(--white);
       text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
     }
     .logo span { color: var(--gray); font-weight: 300; }
+    .logo::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 55%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(158,122,82,0.55), transparent);
+      pointer-events: none;
+      animation: logoShimmer 8s ease-in-out infinite;
+    }
+    @keyframes logoShimmer {
+      0%, 50%  { left: -80%; }
+      82%, 100%{ left: 160%; }
+    }
+
+    /* スクロールプログレスバー */
+    #scroll-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 1px;
+      width: 0%;
+      background: rgba(158, 122, 82, 0.75);
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    /* カスタムカーソル */
+    @media (pointer: fine) {
+      * { cursor: none !important; }
+    }
+    #cursor {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(158, 122, 82, 0.85);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.22s ease, height 0.22s ease,
+                  background 0.22s ease, border 0.22s ease;
+    }
+    #cursor.on-link {
+      width: 30px; height: 30px;
+      background: transparent;
+      border: 1px solid rgba(158, 122, 82, 0.65);
+    }
+    @media (pointer: fine) {
+      #cursor { display: block; }
+    }
     .nav-cta {
       font-size: 11px;
       letter-spacing: 0.18em;
@@ -782,6 +834,8 @@
   </style>
 </head>
 <body>
+  <div id="scroll-bar"></div>
+  <div id="cursor"></div>
 
   <!-- Nav -->
   <nav>
@@ -1181,6 +1235,51 @@
       { threshold: 0.25 }
     );
     document.querySelectorAll('.section-title').forEach(t => obs.observe(t));
+  })();
+
+  // ── 4. カスタムカーソル ────────────────────────────────
+  (function () {
+    if (!matchMedia('(pointer: fine)').matches) return;
+    const dot = document.getElementById('cursor');
+    if (!dot) return;
+    document.addEventListener('mousemove', e => {
+      dot.style.left = e.clientX + 'px';
+      dot.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => dot.classList.add('on-link'));
+      el.addEventListener('mouseleave', () => dot.classList.remove('on-link'));
+    });
+  })();
+
+  // ── 5. 磁気ボタン ──────────────────────────────────────
+  (function () {
+    document.querySelectorAll('.btn-primary').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r  = btn.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width  / 2)) * 0.28;
+        const dy = (e.clientY - (r.top  + r.height / 2)) * 0.28;
+        btn.style.transition = 'transform 0.12s ease, background 0.3s ease, gap 0.3s ease';
+        btn.style.transform  = `translate(${dx}px,${dy}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transition = 'transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94), background 0.3s ease, gap 0.3s ease';
+        btn.style.transform  = '';
+        setTimeout(() => { btn.style.transition = ''; btn.style.transform = ''; }, 560);
+      });
+    });
+  })();
+
+  // ── 6. スクロールプログレスバー ────────────────────────
+  (function () {
+    const bar = document.getElementById('scroll-bar');
+    if (!bar) return;
+    const update = () => {
+      const max = document.body.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? window.scrollY / max * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   })();
   </script>
 </body>
