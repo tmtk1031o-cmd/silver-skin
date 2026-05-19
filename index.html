@@ -11,14 +11,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:        #0d1f3e;
-      --black2:       #172844;
+      --black:        #111111;
+      --black2:       #1c1c1c;
       --white:        #FFFFFF;
       --off:          #F7F5F2;
       --off2:         #EFECE7;
       --border:       #E0DDD8;
-      --border-dark:  #1a3365;
-      --silver:       #A8A29E;
+      --border-dark:  #2a2a2a;
+      --silver:       #B8B4B0;
       --muted:        #888480;
       --serif: 'Cormorant Garamond', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
       --sans:  'Inter', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
@@ -45,7 +45,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 20px 52px;
-      background: rgba(13,31,62,0.97);
+      background: rgba(17,17,17,0.97);
       backdrop-filter: blur(12px);
     }
     .logo {
@@ -184,7 +184,7 @@
     .btn-primary:hover { background: var(--off2); letter-spacing: 0.30em; }
     .hero-note {
       font-size: 12px;
-      color: #4a6890;
+      color: #555;
       letter-spacing: 0.02em;
     }
 
@@ -370,12 +370,12 @@
       display: flex;
       flex-direction: column;
     }
-    .plan-card.featured { background: #1a3365; }
+    .plan-card.featured { background: #2a2a2a; }
     .plan-card.featured .plan-badge { color: var(--silver); }
     .plan-card.featured .plan-name { color: var(--white); }
     .plan-card.featured .plan-price { color: var(--white); }
-    .plan-card.featured .plan-desc { color: #8fa8c4; border-bottom-color: #1e3a6e; }
-    .plan-card.featured .plan-note { color: #5a7ca4; }
+    .plan-card.featured .plan-desc { color: var(--silver); border-bottom-color: var(--border-dark); }
+    .plan-card.featured .plan-note { color: #666; }
     .plan-badge {
       font-size: 10px;
       letter-spacing: 0.3em;
@@ -416,7 +416,7 @@
     .card-tip {
       position: absolute;
       inset: 0;
-      background: rgba(13,31,62,0.93);
+      background: rgba(17,17,17,0.93);
       color: #d8d4d0;
       padding: 32px 30px;
       display: flex;
@@ -472,7 +472,7 @@
     .cost-row:last-child { border-bottom: none; }
     .cost-label { color: var(--silver); }
     .cost-value { color: var(--white); font-feature-settings: "lnum"; }
-    .cost-note { font-size: 11px; color: #4a6890; margin-top: 16px; line-height: 1.9; }
+    .cost-note { font-size: 11px; color: #555; margin-top: 16px; line-height: 1.9; }
     .maint-card {
       background: var(--off);
       padding: 44px 36px;
@@ -574,8 +574,8 @@
       color: var(--silver);
       text-transform: uppercase;
     }
-    .footer-copy { font-size: 12px; color: #4a6890; }
-    .footer-note { font-size: 12px; color: #4a6890; }
+    .footer-copy { font-size: 12px; color: #555; }
+    .footer-note { font-size: 12px; color: #555; }
 
     /* ── Responsive ── */
     @media (max-width: 1100px) {
