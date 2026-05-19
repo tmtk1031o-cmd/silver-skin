@@ -107,24 +107,21 @@
       28%, 48% { border-color: rgba(158, 122, 82, 0.18); }
       58%, 100%{ border-color: transparent; }
     }
-    /* 28秒付近に現れる縦線 */
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 12%;
-      bottom: 12%;
-      left: 50%;
-      width: 1px;
-      background: rgba(158, 122, 82, 0.28);
-      pointer-events: none;
-      z-index: 0;
+    /* 28秒付近に現れる横線 */
+    .hero-anim-line {
+      height: 1px;
+      width: 140px;
+      background: rgba(158, 122, 82, 0.4);
+      margin-bottom: 28px;
+      transform-origin: left;
+      transform: scaleX(0);
       opacity: 0;
-      animation: heroVLine 40s ease-in-out infinite;
+      animation: heroHLine 40s ease-in-out infinite;
     }
-    @keyframes heroVLine {
-      0%, 63% { opacity: 0; }
-      70%, 78% { opacity: 1; }
-      88%, 100%{ opacity: 0; }
+    @keyframes heroHLine {
+      0%, 63%  { opacity: 0; transform: scaleX(0); }
+      70%, 78% { opacity: 1; transform: scaleX(1); }
+      88%, 100%{ opacity: 0; transform: scaleX(0); }
     }
     .hero-content {
       flex: 1;
@@ -140,7 +137,7 @@
       letter-spacing: 0.5em;
       color: var(--gray-dark);
       text-transform: uppercase;
-      margin-bottom: 44px;
+      margin-bottom: 16px;
       display: block;
     }
     .hero-price-block {
@@ -740,6 +737,7 @@
   <section class="hero">
     <div class="hero-content">
       <p class="hero-label">Web Design for Restaurant</p>
+      <div class="hero-anim-line"></div>
       <h1>飲食店のWebサイト、<br>本気で作ります。</h1>
       <div class="hero-price-block">
         <span class="hero-price-label">制作スタート価格</span>
