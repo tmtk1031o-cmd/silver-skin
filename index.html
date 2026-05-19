@@ -10,6 +10,11 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ゴールドカーソル（デフォルト矢印と同形） */
+    * {
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="24"><path d="M2,2 L2,20 L6,15.5 L9,23 L11,22 L8,14.5 L14,14.5 Z" fill="%239e7a52" stroke="%233a3530" stroke-width="1.2" stroke-linejoin="round"/></svg>') 2 2, default;
+    }
+
     :root {
       --black:       #3a3530;   /* espresso */
       --black2:      #2e2a26;   /* deeper espresso */
