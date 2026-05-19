@@ -254,6 +254,8 @@
       line-height: 1.25;
     }
     .section-title strong { font-weight: 500; }
+    /* セリフ体フォント内の¥・数字は常にサンセリフで描画 */
+    .yen { font-family: var(--sans); font-weight: 300; letter-spacing: -0.01em; }
 
     /* ── Features ── */
     .features { background: var(--off); }
@@ -713,7 +715,7 @@
       </div>
       <div class="feature-item">
         <p class="feature-num">02</p>
-        <h3>業界最安値水準。<br>¥30,000から、本格制作。</h3>
+        <h3>業界最安値水準。<br><span class="yen">¥30,000</span>から、本格制作。</h3>
         <p>シンプルLP ¥30,000・スタンダード ¥50,000の2択のみ。大手制作会社の1/3〜1/5の価格で、オリジナルデザインを提供します。追加費用なし・明瞭会計。</p>
       </div>
       <div class="feature-item">
@@ -765,9 +767,9 @@
   <section class="what-you-get">
     <div class="section-eyebrow">
       <div class="section-line"></div>
-      <p class="section-label">¥30,000 Plan</p>
+      <p class="section-label">Starter Plan</p>
     </div>
-    <h2 class="section-title">¥30,000で、<strong>できること。</strong></h2>
+    <h2 class="section-title"><span class="yen">¥30,000</span>で、<strong>できること。</strong></h2>
     <div class="wyg-grid">
       <div class="wyg-item">
         <span class="wyg-num">01</span>
