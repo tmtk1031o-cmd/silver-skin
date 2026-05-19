@@ -90,7 +90,7 @@
     .hero-label {
       font-size: 10px;
       letter-spacing: 0.5em;
-      color: #444;
+      color: var(--gray-dark);
       text-transform: uppercase;
       margin-bottom: 44px;
       display: block;
@@ -131,7 +131,7 @@
       font-family: var(--serif);
       font-size: clamp(14px, 1.4vw, 18px);
       font-weight: 300;
-      color: #666;
+      color: #aaa;
       line-height: 2.0;
       letter-spacing: 0.03em;
       margin-bottom: 48px;
@@ -162,7 +162,7 @@
     .btn-arrow { font-size: 15px; transition: inherit; }
     .hero-note {
       font-size: 12px;
-      color: #3a3a3a;
+      color: #777;
       letter-spacing: 0.02em;
     }
 
@@ -191,11 +191,11 @@
     .hero-stat-label {
       font-size: 10px;
       letter-spacing: 0.25em;
-      color: #444;
+      color: #777;
       text-transform: uppercase;
       margin-bottom: 4px;
     }
-    .hero-stat-desc { font-size: 12px; color: #333; }
+    .hero-stat-desc { font-size: 12px; color: #666; }
 
     /* ── Marquee ── */
     .marquee {
@@ -214,12 +214,12 @@
     .marquee-item {
       font-size: 10px;
       letter-spacing: 0.35em;
-      color: #3a3a3a;
+      color: #888;
       text-transform: uppercase;
       padding: 0 36px;
       flex-shrink: 0;
     }
-    .marquee-sep { color: #252525; padding: 0 4px; flex-shrink: 0; }
+    .marquee-sep { color: #444; padding: 0 4px; flex-shrink: 0; }
     @keyframes marquee {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
@@ -651,7 +651,7 @@
         <span class="hero-price-from">から</span>
       </div>
       <h1>飲食店のWebサイト、<br>本気で作ります。</h1>
-      <p class="hero-sub">飲食業界を熟知した制作者が、ドメイン取得から公開まで完全対応。打ち合わせ不要・完全オンラインで進みます。</p>
+      <p class="hero-sub">担当者が最初から最後まで一人で対応。飲食業界を熟知した制作者が、ドメイン取得から公開まで責任を持って進めます。打ち合わせ不要・完全オンライン。</p>
       <div class="hero-bottom">
         <a href="#contact" class="btn-primary">無料相談はこちら <span class="btn-arrow">→</span></a>
         <p class="hero-note">返信2営業日以内 / 完全非対面</p>
@@ -679,24 +679,22 @@
   <!-- Marquee -->
   <div class="marquee">
     <div class="marquee-track">
+      <span class="marquee-item">業界最安値水準 ¥30,000〜</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">担当者が最初から最後まで一人で対応</span><span class="marquee-sep">·</span>
       <span class="marquee-item">飲食店専門</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">打ち合わせ不要</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">最短2週間</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">¥30,000〜</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">完全オンライン</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">月2件限定</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">スマホ対応</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">修正2回込</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">ドメイン設定込</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">月2件限定・丁寧な制作</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">最短2週間で公開</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">打ち合わせ不要・完全オンライン</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">ドメイン・サーバー設定込み</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">修正2回まで無料</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">業界最安値水準 ¥30,000〜</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">担当者が最初から最後まで一人で対応</span><span class="marquee-sep">·</span>
       <span class="marquee-item">飲食店専門</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">打ち合わせ不要</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">最短2週間</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">¥30,000〜</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">完全オンライン</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">月2件限定</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">スマホ対応</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">修正2回込</span><span class="marquee-sep">·</span>
-      <span class="marquee-item">ドメイン設定込</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">月2件限定・丁寧な制作</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">最短2週間で公開</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">打ち合わせ不要・完全オンライン</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">ドメイン・サーバー設定込み</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">修正2回まで無料</span><span class="marquee-sep">·</span>
     </div>
   </div>
 
@@ -710,18 +708,18 @@
     <div class="features-grid">
       <div class="feature-item">
         <p class="feature-num">01</p>
-        <h3>現場を知っている人間が、<br>つくります。</h3>
-        <p>予約導線・メニュー写真・スマホ表示——飲食店の現場を知っているから、使う側の視点で設計できます。</p>
+        <h3>担当者が変わらない。<br>最初から最後まで一人で。</h3>
+        <p>窓口・制作・公開まで、すべて同じ担当者が対応します。「話が違う」「伝言ゲームで意図がズレる」が起きない。一人一人のお店を、真剣に向き合って制作します。</p>
       </div>
       <div class="feature-item">
         <p class="feature-num">02</p>
-        <h3>2プランのみ。<br>選んで、終わり。</h3>
-        <p>シンプルLP ¥30,000・スタンダード ¥50,000の2択だけ。業界最安水準の価格で、余計な迷いが生まれません。追加費用なし・明瞭会計。</p>
+        <h3>業界最安値水準。<br>¥30,000から、本格制作。</h3>
+        <p>シンプルLP ¥30,000・スタンダード ¥50,000の2択のみ。大手制作会社の1/3〜1/5の価格で、オリジナルデザインを提供します。追加費用なし・明瞭会計。</p>
       </div>
       <div class="feature-item">
         <p class="feature-num">03</p>
-        <h3>月々¥5,500で、<br>全部まとめておまかせ。</h3>
-        <p>ドメイン・サーバー・更新対応がすべて込み。月にかかる費用がひと目でわかるシンプルな構造です。</p>
+        <h3>飲食店の現場を知る人間が、<br>つくります。</h3>
+        <p>予約導線・メニュー写真・スマホ表示——飲食業界を熟知した制作者だから、「使う側の視点」で設計できます。月々¥5,500の保守プランで、公開後も安心。</p>
       </div>
     </div>
   </section>
