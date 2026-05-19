@@ -124,21 +124,6 @@
       70%  { background-color: #28201a; }
       100% { background-color: #3a3530; }
     }
-    /* たまに浮かぶ枠線 */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 44px;
-      border: 1px solid transparent;
-      pointer-events: none;
-      z-index: 0;
-      animation: heroFrame 40s ease-in-out infinite;
-    }
-    @keyframes heroFrame {
-      0%,  18% { border-color: transparent; }
-      28%, 48% { border-color: rgba(158, 122, 82, 0.18); }
-      58%, 100%{ border-color: transparent; }
-    }
     /* 左右の縦線（ページ読み込み時にゆっくり伸びる） */
     .hero-vline {
       position: absolute;
