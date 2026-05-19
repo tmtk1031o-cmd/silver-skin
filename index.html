@@ -186,6 +186,7 @@
       justify-content: center;
       position: relative;
       z-index: 1;
+      will-change: transform;
     }
     .hero-label {
       font-size: 10px;
@@ -1098,5 +1099,89 @@
     <p class="footer-copy">&copy; 2026 Silver Skin</p>
   </footer>
 
+  <script>
+  // ── 1. マウス視差（ヒーロー） ──────────────────────────
+  (function () {
+    const hero    = document.querySelector('.hero');
+    const content = document.querySelector('.hero-content');
+    if (!hero || !content) return;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    hero.addEventListener('mousemove', e => {
+      const r = hero.getBoundingClientRect();
+      tx = (e.clientX - r.left - r.width  / 2) / r.width  * 22;
+      ty = (e.clientY - r.top  - r.height / 2) / r.height * 14;
+    });
+    hero.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+    (function loop() {
+      cx += (tx - cx) * 0.04;
+      cy += (ty - cy) * 0.04;
+      content.style.transform = `translate(${cx.toFixed(2)}px,${cy.toFixed(2)}px)`;
+      requestAnimationFrame(loop);
+    })();
+  })();
+
+  // ── 2. スクロール連動カウントアップ（hero-stats） ──────
+  (function () {
+    const defs = [
+      { prefix: '¥', target: 30000, suffix: '' },
+      { prefix: '',  target: 2,     suffix: '週間' },
+      null
+    ];
+    const els = document.querySelectorAll('.hero-stat-num');
+    let done = false;
+    const observer = new IntersectionObserver(entries => {
+      if (done || !entries[0].isIntersecting) return;
+      done = true;
+      observer.disconnect();
+      els.forEach((el, i) => {
+        if (!defs[i]) return;
+        const { prefix, target, suffix } = defs[i];
+        const start = performance.now();
+        const dur   = 1400;
+        (function tick(now) {
+          const p = Math.min((now - start) / dur, 1);
+          const v = Math.round((1 - Math.pow(1 - p, 3)) * target);
+          el.textContent = prefix + v.toLocaleString('ja-JP') + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        })(performance.now());
+      });
+    }, { threshold: 0.4 });
+    const stats = document.querySelector('.hero-stats');
+    if (stats) observer.observe(stats);
+  })();
+
+  // ── 3. テキストデコード（section-title） ───────────────
+  (function () {
+    const KANA  = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    const ASCII = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    function rnd(ch) {
+      if (/[\s　。、・]/.test(ch)) return ch;
+      return ch.charCodeAt(0) > 255
+        ? KANA [Math.floor(Math.random() * KANA.length)]
+        : ASCII[Math.floor(Math.random() * ASCII.length)];
+    }
+    function decode(el) {
+      if (el._decoded) return;
+      el._decoded = true;
+      const saved = el.innerHTML;
+      const text  = el.textContent;
+      const FPS = 40, DUR = 900, frames = DUR / FPS;
+      let f = 0;
+      const iv = setInterval(() => {
+        f++;
+        const p = f / frames;
+        el.textContent = Array.from(text).map((ch, i) =>
+          i / text.length < p * 1.5 ? ch : rnd(ch)
+        ).join('');
+        if (p >= 1) { clearInterval(iv); el.innerHTML = saved; }
+      }, FPS);
+    }
+    const obs = new IntersectionObserver(entries =>
+      entries.forEach(e => { if (e.isIntersecting) decode(e.target); }),
+      { threshold: 0.25 }
+    );
+    document.querySelectorAll('.section-title').forEach(t => obs.observe(t));
+  })();
+  </script>
 </body>
 </html>
