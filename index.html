@@ -11,17 +11,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:        #111111;
-      --black2:       #1c1c1c;
-      --silver:       #B8BEC4;
-      --silver2:      #AEB4BA;
-      --silver-dark:  #9EA4AA;
-      --white:        #FFFFFF;
-      --off:          #F7F5F2;
-      --off2:         #EFECE7;
-      --border:       #E0DDD8;
-      --border-dark:  #B0ACA8;
-      --muted:        #888480;
+      --black:       #111111;
+      --black2:      #1c1c1c;
+      --gray:        #B8BEC4;
+      --gray2:       #AEB4BA;
+      --gray-dark:   #9EA4AA;
+      --white:       #FFFFFF;
+      --off:         #F7F5F2;
+      --off2:        #EFECE7;
+      --border:      #E0DDD8;
+      --border-dark: #222222;
+      --muted:       #888480;
       --serif: 'Cormorant Garamond', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
       --sans:  'Inter', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
     }
@@ -47,124 +47,96 @@
       align-items: center;
       justify-content: space-between;
       padding: 20px 52px;
-      background: rgba(184,190,196,0.97);
+      background: rgba(17,17,17,0.97);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--silver-dark);
+      border-bottom: 1px solid #1e1e1e;
     }
     .logo {
       font-family: var(--serif);
       font-size: 17px;
       font-weight: 400;
       letter-spacing: 0.30em;
-      color: var(--black);
+      color: var(--white);
       text-transform: uppercase;
     }
-    .logo span { color: #666; font-weight: 300; }
+    .logo span { color: var(--gray); font-weight: 300; }
     .nav-cta {
       font-size: 11px;
       letter-spacing: 0.18em;
-      color: var(--black);
+      color: var(--gray);
       text-decoration: none;
-      border: 1px solid rgba(50,50,50,0.35);
+      border: 1px solid #333;
       padding: 9px 22px;
       transition: all 0.3s ease;
       text-transform: uppercase;
     }
-    .nav-cta:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+    .nav-cta:hover { border-color: var(--gray); color: var(--white); }
 
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
-      background: var(--silver);
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      padding-top: 80px;
+    }
+    .hero-content {
+      flex: 1;
+      padding: 80px 52px 80px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 140px 52px 100px;
     }
     .hero-label {
       font-size: 10px;
       letter-spacing: 0.5em;
-      color: #666;
+      color: #444;
       text-transform: uppercase;
-      margin-bottom: 36px;
+      margin-bottom: 44px;
       display: block;
     }
     .hero-price-wrap {
       display: flex;
       align-items: baseline;
-      gap: 14px;
-      margin-bottom: 28px;
+      gap: 16px;
+      margin-bottom: 36px;
     }
     .hero-price-big {
       font-family: var(--sans);
-      font-size: clamp(60px, 9vw, 120px);
+      font-size: clamp(64px, 10vw, 130px);
       font-weight: 300;
-      color: var(--black);
+      color: var(--white);
       letter-spacing: -0.02em;
       line-height: 1;
       font-feature-settings: "lnum", "tnum";
     }
     .hero-price-from {
       font-family: var(--serif);
-      font-size: clamp(22px, 2.8vw, 36px);
+      font-size: clamp(24px, 3vw, 42px);
       font-weight: 300;
-      color: #555;
+      color: var(--gray);
       letter-spacing: 0.05em;
     }
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(28px, 3.5vw, 52px);
+      font-size: clamp(30px, 4vw, 62px);
       font-weight: 300;
-      line-height: 1.4;
-      color: var(--black);
+      line-height: 1.3;
+      color: var(--white);
       letter-spacing: 0.02em;
-      margin-bottom: 20px;
-      max-width: 680px;
+      margin-bottom: 28px;
+      max-width: 780px;
     }
     .hero-sub {
       font-family: var(--serif);
-      font-size: clamp(15px, 1.5vw, 20px);
+      font-size: clamp(14px, 1.4vw, 18px);
       font-weight: 300;
-      font-style: italic;
-      color: #555;
-      letter-spacing: 0.05em;
-      margin-bottom: 32px;
+      color: #666;
+      line-height: 2.0;
+      letter-spacing: 0.03em;
+      margin-bottom: 48px;
+      max-width: 580px;
     }
-    .hero-badges {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 44px;
-    }
-    .hero-badge {
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      color: #444;
-      border: 1px solid rgba(50,50,50,0.3);
-      padding: 7px 18px;
-    }
-    .hero-rule {
-      width: 48px;
-      height: 1px;
-      background: #888;
-      margin-bottom: 32px;
-      opacity: 0.5;
-    }
-    .hero-story {
-      font-family: var(--serif);
-      font-size: clamp(14px, 1.4vw, 17px);
-      font-weight: 300;
-      color: #444;
-      line-height: 2.1;
-      max-width: 540px;
-      letter-spacing: 0.04em;
-      margin-bottom: 52px;
-    }
-    .hero-story p { margin: 0 0 1.2em; }
-    .hero-story p:last-child { margin-bottom: 0; }
-    .hero-story em { font-style: italic; color: #222; }
     .hero-bottom {
       display: flex;
       align-items: center;
@@ -172,23 +144,85 @@
       flex-wrap: wrap;
     }
     .btn-primary {
-      display: inline-block;
-      padding: 18px 52px;
-      background: var(--black);
-      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 48px;
+      background: var(--white);
+      color: var(--black);
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.22em;
       text-decoration: none;
       text-transform: uppercase;
       transition: all 0.3s ease;
       white-space: nowrap;
     }
-    .btn-primary:hover { background: #333; letter-spacing: 0.30em; }
+    .btn-primary:hover { background: var(--off2); gap: 22px; }
+    .btn-arrow { font-size: 15px; transition: inherit; }
     .hero-note {
       font-size: 12px;
-      color: #666;
+      color: #3a3a3a;
       letter-spacing: 0.02em;
+    }
+
+    /* ── Hero Stats Bar ── */
+    .hero-stats {
+      border-top: 1px solid #1e1e1e;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .hero-stat {
+      padding: 36px 52px;
+      border-right: 1px solid #1e1e1e;
+      transition: background 0.25s;
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat:hover { background: #161616; }
+    .hero-stat-num {
+      font-family: var(--sans);
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      font-feature-settings: "lnum", "tnum";
+      margin-bottom: 6px;
+    }
+    .hero-stat-label {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: #444;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .hero-stat-desc { font-size: 12px; color: #333; }
+
+    /* ── Marquee ── */
+    .marquee {
+      background: var(--black2);
+      overflow: hidden;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      padding: 17px 0;
+    }
+    .marquee-track {
+      display: flex;
+      animation: marquee 32s linear infinite;
+      white-space: nowrap;
+      width: max-content;
+    }
+    .marquee-item {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: #3a3a3a;
+      text-transform: uppercase;
+      padding: 0 36px;
+      flex-shrink: 0;
+    }
+    .marquee-sep { color: #252525; padding: 0 4px; flex-shrink: 0; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
 
     /* ── Section base ── */
@@ -212,12 +246,12 @@
     }
     .section-title {
       font-family: var(--serif);
-      font-size: clamp(30px, 3.5vw, 50px);
+      font-size: clamp(32px, 4vw, 56px);
       font-weight: 300;
       color: var(--black);
       margin-bottom: 72px;
       letter-spacing: 0.02em;
-      line-height: 1.3;
+      line-height: 1.25;
     }
     .section-title strong { font-weight: 500; }
 
@@ -238,7 +272,7 @@
     .feature-item:hover { background: var(--white); }
     .feature-num {
       font-family: 'DM Serif Display', serif;
-      font-size: 40px;
+      font-size: 44px;
       font-weight: 400;
       color: var(--border);
       margin-bottom: 28px;
@@ -246,7 +280,7 @@
     }
     .feature-item h3 {
       font-family: var(--serif);
-      font-size: 23px;
+      font-size: 24px;
       font-weight: 400;
       color: var(--black);
       margin-bottom: 18px;
@@ -271,10 +305,7 @@
       background: var(--border);
       z-index: 0;
     }
-    .process-step {
-      padding: 0 20px 0;
-      text-align: center;
-    }
+    .process-step { padding: 0 20px; text-align: center; }
     .process-num-wrap {
       display: flex;
       justify-content: center;
@@ -283,8 +314,7 @@
       z-index: 1;
     }
     .process-num {
-      width: 62px;
-      height: 62px;
+      width: 62px; height: 62px;
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -309,11 +339,7 @@
       margin-bottom: 12px;
       line-height: 1.4;
     }
-    .process-step p {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.9;
-    }
+    .process-step p { font-size: 12px; color: var(--muted); line-height: 1.9; }
     .process-note {
       margin-top: 52px;
       text-align: center;
@@ -323,16 +349,19 @@
     }
 
     /* ── What You Get ── */
-    .what-you-get { background: var(--off); }
+    .what-you-get { background: var(--gray); }
+    .what-you-get .section-line { background: var(--black); }
+    .what-you-get .section-label { color: #666; }
+    .what-you-get .section-title { color: var(--black); }
     .wyg-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      background: var(--gray-dark);
+      border: 1px solid var(--gray-dark);
     }
     .wyg-item {
-      background: var(--off);
+      background: var(--gray);
       padding: 44px 36px;
       transition: background 0.25s;
     }
@@ -340,7 +369,7 @@
     .wyg-num {
       font-family: 'DM Serif Display', serif;
       font-size: 36px;
-      color: var(--border);
+      color: var(--gray-dark);
       margin-bottom: 20px;
       display: block;
       line-height: 1;
@@ -353,7 +382,7 @@
       margin-bottom: 12px;
       line-height: 1.5;
     }
-    .wyg-desc { font-size: 13px; color: var(--muted); line-height: 2.0; }
+    .wyg-desc { font-size: 13px; color: #555; line-height: 2.0; }
 
     /* ── Plans ── */
     .plans { background: var(--white); }
@@ -373,12 +402,12 @@
       display: flex;
       flex-direction: column;
     }
-    .plan-card.featured { background: var(--silver); }
-    .plan-card.featured .plan-badge { color: #666; }
-    .plan-card.featured .plan-name { color: var(--black); }
-    .plan-card.featured .plan-price { color: var(--black); }
-    .plan-card.featured .plan-desc { color: #555; border-bottom-color: var(--silver-dark); }
-    .plan-card.featured .plan-note { color: #666; }
+    .plan-card.featured { background: var(--black); }
+    .plan-card.featured .plan-badge { color: #444; }
+    .plan-card.featured .plan-name { color: var(--white); }
+    .plan-card.featured .plan-price { color: var(--white); }
+    .plan-card.featured .plan-desc { color: #666; border-bottom-color: #2a2a2a; }
+    .plan-card.featured .plan-note { color: #444; }
     .plan-badge {
       font-size: 10px;
       letter-spacing: 0.3em;
@@ -419,8 +448,8 @@
     .card-tip {
       position: absolute;
       inset: 0;
-      background: rgba(17,17,17,0.93);
-      color: #d8d4d0;
+      background: rgba(17,17,17,0.94);
+      color: #c8c4c0;
       padding: 32px 30px;
       display: flex;
       align-items: center;
@@ -433,8 +462,9 @@
       pointer-events: none;
     }
     .plan-card.featured .card-tip {
-      background: rgba(17,17,17,0.88);
-      color: #e8e4e0;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(8px);
+      color: #e0dcd8;
     }
     .plan-card:hover .card-tip,
     .maint-card:hover .card-tip { opacity: 1; transform: translateY(0); }
@@ -453,13 +483,12 @@
       max-width: 860px;
       margin-top: 48px;
       padding: 36px 44px;
-      background: var(--silver);
-      border: 1px solid var(--silver-dark);
+      background: var(--black);
     }
     .cost-summary-title {
       font-size: 10px;
       letter-spacing: 0.4em;
-      color: #666;
+      color: #444;
       text-transform: uppercase;
       margin-bottom: 24px;
     }
@@ -468,15 +497,15 @@
       justify-content: space-between;
       align-items: baseline;
       padding: 14px 0;
-      border-bottom: 1px solid var(--border-dark);
+      border-bottom: 1px solid #1e1e1e;
       font-size: 13px;
     }
     .cost-row:last-child { border-bottom: none; }
     .cost-label { color: #555; }
-    .cost-value { color: var(--black); font-feature-settings: "lnum"; font-weight: 500; }
-    .cost-note { font-size: 11px; color: #666; margin-top: 16px; line-height: 1.9; }
+    .cost-value { color: var(--white); font-feature-settings: "lnum"; font-weight: 500; }
+    .cost-note { font-size: 11px; color: #2e2e2e; margin-top: 16px; line-height: 1.9; }
     .maint-card {
-      background: var(--off);
+      background: var(--white);
       padding: 44px 36px;
       position: relative;
       overflow: hidden;
@@ -528,27 +557,28 @@
 
     /* ── Contact ── */
     .contact {
-      background: var(--silver);
+      background: var(--black);
       text-align: center;
-      padding: 120px 52px;
-      border-top: 1px solid var(--silver-dark);
+      padding: 140px 52px;
     }
-    .contact .section-line { background: #666; }
-    .contact .section-label { color: #666; }
+    .contact .section-line { background: #2a2a2a; }
+    .contact .section-label { color: #3a3a3a; }
     .contact .section-eyebrow { justify-content: center; }
-    .contact .section-title { color: var(--black); margin-bottom: 16px; }
+    .contact .section-title { color: var(--white); margin-bottom: 20px; }
     .contact-sub {
-      font-size: 13px;
+      font-size: 14px;
       color: #555;
-      margin-bottom: 52px;
+      margin-bottom: 60px;
       line-height: 2.2;
       letter-spacing: 0.03em;
     }
     .btn-secondary {
-      display: inline-block;
-      padding: 18px 60px;
-      border: 1px solid var(--black);
-      color: var(--black);
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 60px;
+      border: 1px solid #2a2a2a;
+      color: var(--white);
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.24em;
@@ -556,13 +586,13 @@
       text-transform: uppercase;
       transition: all 0.3s ease;
     }
-    .btn-secondary:hover { background: var(--black); color: var(--white); }
+    .btn-secondary:hover { background: var(--white); color: var(--black); border-color: var(--white); gap: 22px; }
 
     /* ── Footer ── */
     footer {
-      background: var(--silver2);
+      background: var(--black2);
       padding: 44px 52px;
-      border-top: 1px solid var(--border-dark);
+      border-top: 1px solid #1a1a1a;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -577,8 +607,8 @@
       color: #333;
       text-transform: uppercase;
     }
-    .footer-copy { font-size: 12px; color: #666; }
-    .footer-note { font-size: 12px; color: #666; }
+    .footer-copy { font-size: 12px; color: #2a2a2a; }
+    .footer-note { font-size: 12px; color: #2a2a2a; }
 
     /* ── Responsive ── */
     @media (max-width: 1100px) {
@@ -588,12 +618,14 @@
     @media (max-width: 768px) {
       nav { padding: 18px 24px; }
       section { padding: 80px 24px; }
-      .hero { padding: 120px 24px 80px; }
+      .hero-content { padding: 40px 24px 60px; }
+      .hero-stat { padding: 24px; }
       .features-grid { grid-template-columns: 1fr; }
       .wyg-grid { grid-template-columns: 1fr 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; gap: 40px 0; }
       .plans-grid { grid-template-columns: 1fr; }
       .cost-summary { padding: 28px 24px; }
+      .hero-stats { grid-template-columns: 1fr; }
       footer { padding: 36px 24px; }
     }
     @media (max-width: 480px) {
@@ -612,28 +644,61 @@
 
   <!-- Hero -->
   <section class="hero">
-    <p class="hero-label">Web Design for Restaurant</p>
-    <div class="hero-price-wrap">
-      <span class="hero-price-big">¥30,000</span>
-      <span class="hero-price-from">から</span>
+    <div class="hero-content">
+      <p class="hero-label">Web Design for Restaurant</p>
+      <div class="hero-price-wrap">
+        <span class="hero-price-big">¥30,000</span>
+        <span class="hero-price-from">から</span>
+      </div>
+      <h1>飲食店のWebサイト、<br>本気で作ります。</h1>
+      <p class="hero-sub">飲食業界を熟知した制作者が、ドメイン取得から公開まで完全対応。打ち合わせ不要・完全オンラインで進みます。</p>
+      <div class="hero-bottom">
+        <a href="#contact" class="btn-primary">無料相談はこちら <span class="btn-arrow">→</span></a>
+        <p class="hero-note">返信2営業日以内 / 完全非対面</p>
+      </div>
     </div>
-    <h1>飲食店のホームページ、<br>作ります。</h1>
-    <p class="hero-sub">飲食店の現場を知る制作者が、最短2週間で仕上げます。</p>
-    <div class="hero-badges">
-      <span class="hero-badge">飲食店専門</span>
-      <span class="hero-badge">打ち合わせ不要</span>
-      <span class="hero-badge">最短2週間</span>
-      <span class="hero-badge">月2件限定</span>
-    </div>
-    <div class="hero-rule"></div>
-    <div class="hero-story">
-      <p>Silver Skinは、<em>飲食業界を深く知る制作者が運営する</em>飲食店専門のWeb制作代行です。フォーム1本・打ち合わせゼロ・完全オンラインで対応します。</p>
-    </div>
-    <div class="hero-bottom">
-      <a href="#contact" class="btn-primary">無料相談はこちら</a>
-      <p class="hero-note">返信2営業日以内 / 完全非対面</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <p class="hero-stat-num">¥30,000</p>
+        <p class="hero-stat-label">制作スタート価格</p>
+        <p class="hero-stat-desc">シンプルLPプラン</p>
+      </div>
+      <div class="hero-stat">
+        <p class="hero-stat-num">2週間</p>
+        <p class="hero-stat-label">最短納期</p>
+        <p class="hero-stat-desc">シンプルLPの場合</p>
+      </div>
+      <div class="hero-stat">
+        <p class="hero-stat-num">月2件</p>
+        <p class="hero-stat-label">受付上限</p>
+        <p class="hero-stat-desc">丁寧な制作のために</p>
+      </div>
     </div>
   </section>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">飲食店専門</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">打ち合わせ不要</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">最短2週間</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">¥30,000〜</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">完全オンライン</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">月2件限定</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">スマホ対応</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">修正2回込</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">ドメイン設定込</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">飲食店専門</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">打ち合わせ不要</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">最短2週間</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">¥30,000〜</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">完全オンライン</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">月2件限定</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">スマホ対応</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">修正2回込</span><span class="marquee-sep">·</span>
+      <span class="marquee-item">ドメイン設定込</span><span class="marquee-sep">·</span>
+    </div>
+  </div>
 
   <!-- Features -->
   <section class="features">
@@ -670,37 +735,27 @@
     <h2 class="section-title"><strong>制作の流れ</strong></h2>
     <div class="process-grid">
       <div class="process-step">
-        <div class="process-num-wrap">
-          <div class="process-num">01</div>
-        </div>
+        <div class="process-num-wrap"><div class="process-num">01</div></div>
         <h4>フォーム送信</h4>
         <p>お問い合わせフォームからご要望をお送りください。2営業日以内にご連絡します。</p>
       </div>
       <div class="process-step">
-        <div class="process-num-wrap">
-          <div class="process-num">02</div>
-        </div>
+        <div class="process-num-wrap"><div class="process-num">02</div></div>
         <h4>ヒアリング</h4>
         <p>メール・チャットにてお店の詳細をお伺いします。打ち合わせは不要です。</p>
       </div>
       <div class="process-step">
-        <div class="process-num-wrap">
-          <div class="process-num">03</div>
-        </div>
+        <div class="process-num-wrap"><div class="process-num">03</div></div>
         <h4>初稿提出</h4>
         <p>デザイン・テキストを組み上げた初稿をご確認いただきます。</p>
       </div>
       <div class="process-step">
-        <div class="process-num-wrap">
-          <div class="process-num">04</div>
-        </div>
+        <div class="process-num-wrap"><div class="process-num">04</div></div>
         <h4>修正・確認</h4>
         <p>ご意見をもとに修正します。修正は2回まで含まれています。</p>
       </div>
       <div class="process-step">
-        <div class="process-num-wrap">
-          <div class="process-num">05</div>
-        </div>
+        <div class="process-num-wrap"><div class="process-num">05</div></div>
         <h4>公開・完成</h4>
         <p>サーバー設定・公開作業まで対応。公開後は保守プランでサポートを継続します。</p>
       </div>
@@ -797,7 +852,6 @@
         <div class="card-tip">Silver Skinではドメイン・サーバーの管理もまとめてお任せいただくため、制作プランとあわせて保守プランへのご加入をお願いしています。更新依頼はメールのみ受付。月5回を超えた場合は1回¥1,000で対応します。</div>
       </div>
     </div>
-
     <div class="cost-summary">
       <p class="cost-summary-title">月々かかる費用の目安</p>
       <div class="cost-row">
@@ -873,12 +927,12 @@
       <div class="section-line"></div>
       <p class="section-label">Contact</p>
     </div>
-    <h2 class="section-title"><strong>無料相談</strong>はこちらから</h2>
+    <h2 class="section-title">まず、<strong>相談してみてください。</strong></h2>
     <p class="contact-sub">
-      フォームにてご要望をお聞きします。<br>
-      返信は2営業日以内。まずはお気軽にどうぞ。
+      費用・期間・内容、なんでも聞けます。<br>
+      フォームから送るだけ。2営業日以内に返信します。
     </p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8OV6ipc8I4Ljy0d8QCXagxO_tiZh5-aw1Nxt5O_FXUkbPg/viewform?usp=publish-editor" target="_blank" class="btn-secondary">お問い合わせフォームへ</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8OV6ipc8I4Ljy0d8QCXagxO_tiZh5-aw1Nxt5O_FXUkbPg/viewform?usp=publish-editor" target="_blank" class="btn-secondary">お問い合わせフォームへ <span class="btn-arrow">→</span></a>
   </section>
 
   <!-- Footer -->
