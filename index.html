@@ -82,126 +82,44 @@
       flex-direction: column;
       padding-top: 80px;
     }
+    /* ── Hero Browser Bar ── */
+    .hero-browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 52px;
+      background: #2e2a26;
+      border-bottom: 1px solid #4a4038;
+    }
+    .hero-browser-dots {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .hero-browser-dots i {
+      display: block;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      font-style: normal;
+    }
+    .hero-browser-url {
+      background: #3e3830;
+      border: 1px solid #4a4038;
+      border-radius: 3px;
+      padding: 5px 16px;
+      font-size: 10px;
+      color: #7a6a58;
+      letter-spacing: 0.06em;
+      font-family: var(--sans);
+    }
+
     .hero-content {
       flex: 1;
       padding: 80px 52px 80px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .hero-left {
       display: flex;
       flex-direction: column;
+      justify-content: center;
     }
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-
-    /* ── Mockup Browser ── */
-    .mockup {
-      width: 100%;
-      max-width: 380px;
-      border: 1px solid #2e2e2e;
-      background: #0a0a0a;
-    }
-    .mockup-topbar {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 9px 12px;
-      background: #131313;
-      border-bottom: 1px solid #222;
-    }
-    .mockup-topbar i {
-      display: block; width: 6px; height: 6px;
-      border-radius: 50%; background: #2a2a2a;
-      font-style: normal; flex-shrink: 0;
-    }
-    .mockup-url {
-      font-size: 9px; color: #2e2e2e;
-      letter-spacing: 0.06em; margin-left: 8px;
-      font-family: var(--sans);
-    }
-    .mockup-screen {
-      height: 300px;
-      position: relative;
-      overflow: hidden;
-    }
-    .mock-slide {
-      position: absolute; inset: 0;
-      opacity: 0;
-      animation: mockFade 18s infinite;
-    }
-    .mock-slide:nth-child(1) { animation-delay: 0s; }
-    .mock-slide:nth-child(2) { animation-delay: 6s; }
-    .mock-slide:nth-child(3) { animation-delay: 12s; }
-    @keyframes mockFade {
-      0%, 5%   { opacity: 0; }
-      12%, 27% { opacity: 1; }
-      33%, 100%{ opacity: 0; }
-    }
-    .mockup-caption {
-      font-size: 9px;
-      letter-spacing: 0.35em;
-      color: #2e2e2e;
-      text-transform: uppercase;
-      font-family: var(--sans);
-    }
-
-    /* Slide 1 — Dark minimal */
-    .ms1 { background: #0f0f0f; }
-    .ms1-nav { height: 20px; background: #111; border-bottom: 1px solid #1c1c1c; display: flex; align-items: center; padding: 0 10px; gap: 5px; }
-    .ms1-nav span { display: block; background: #1e1e1e; height: 5px; }
-    .ms1-nav span:nth-child(1){ width: 28px; }
-    .ms1-nav span:nth-child(2){ width: 18px; }
-    .ms1-nav span:nth-child(3){ width: 18px; }
-    .ms1-hero { height: 115px; background: #141414; display: flex; flex-direction: column; justify-content: flex-end; padding: 14px 16px; gap: 7px; }
-    .ms1-hero span { display: block; background: #222; }
-    .ms1-hero span:nth-child(1){ height: 3px; width: 35%; }
-    .ms1-hero span:nth-child(2){ height: 9px; width: 72%; background: #2e2e2e; }
-    .ms1-hero span:nth-child(3){ height: 3px; width: 55%; }
-    .ms1-btn { height: 12px; width: 64px; background: #fff; margin-top: 6px; }
-    .ms1-body { padding: 12px 16px; display: flex; gap: 6px; }
-    .ms1-card { flex: 1; height: 60px; background: #131313; border: 1px solid #1c1c1c; }
-
-    /* Slide 2 — Light café */
-    .ms2 { background: #f7f3ef; }
-    .ms2-nav { height: 20px; background: #fff; border-bottom: 1px solid #eae5de; display: flex; align-items: center; padding: 0 10px; gap: 8px; }
-    .ms2-nav span { display: block; background: #d5cdc4; height: 5px; }
-    .ms2-nav span:nth-child(1){ width: 24px; }
-    .ms2-nav span:nth-child(2){ width: 16px; }
-    .ms2-nav span:nth-child(3){ width: 16px; }
-    .ms2-hero { height: 125px; background: #e6ddd2; display: flex; flex-direction: column; justify-content: center; padding: 0 18px; gap: 7px; }
-    .ms2-hero span { display: block; }
-    .ms2-hero span:nth-child(1){ height: 2px; width: 25%; background: #b5a898; }
-    .ms2-hero span:nth-child(2){ height: 11px; width: 65%; background: #7a6a58; }
-    .ms2-btn2 { height: 13px; width: 70px; background: #3a3028; margin-top: 4px; }
-    .ms2-body { padding: 12px 16px; display: flex; gap: 10px; }
-    .ms2-text { flex: 1; display: flex; flex-direction: column; gap: 5px; }
-    .ms2-text span { display: block; background: #d8d0c5; height: 5px; border-radius: 1px; }
-    .ms2-text span:nth-child(2){ width: 85%; }
-    .ms2-text span:nth-child(3){ width: 70%; }
-    .ms2-text span:nth-child(4){ width: 90%; }
-    .ms2-img { width: 80px; height: 78px; background: #cfc4b4; }
-
-    /* Slide 3 — Warm izakaya */
-    .ms3 { background: #110c06; }
-    .ms3-nav { height: 20px; background: #0c0802; border-bottom: 1px solid #1e1505; display: flex; align-items: center; padding: 0 10px; gap: 6px; }
-    .ms3-nav span { display: block; background: #2a1e0a; height: 5px; }
-    .ms3-nav span:nth-child(1){ width: 26px; }
-    .ms3-nav span:nth-child(2){ width: 16px; }
-    .ms3-nav span:nth-child(3){ width: 16px; }
-    .ms3-hero { height: 125px; background: #160f05; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
-    .ms3-hero span { display: block; }
-    .ms3-hero span:nth-child(1){ height: 2px; width: 28%; background: #3e2c12; }
-    .ms3-hero span:nth-child(2){ height: 9px; width: 56%; background: #6b4e25; }
-    .ms3-hero span:nth-child(3){ height: 2px; width: 35%; background: #3e2c12; }
-    .ms3-body { padding: 10px 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-    .ms3-item { height: 56px; background: #160e05; border: 1px solid #221605; }
     .hero-label {
       font-size: 10px;
       letter-spacing: 0.5em;
@@ -779,8 +697,8 @@
     @media (max-width: 768px) {
       nav { padding: 18px 24px; }
       section { padding: 80px 24px; }
-      .hero-content { padding: 40px 24px 60px; grid-template-columns: 1fr; gap: 40px; }
-      .hero-right { display: none; }
+      .hero-content { padding: 40px 24px 60px; }
+      .hero-browser-bar { padding: 10px 24px; }
       .hero-stat { padding: 24px; }
       .features-grid { grid-template-columns: 1fr; }
       .wyg-grid { grid-template-columns: 1fr 1fr; }
@@ -806,61 +724,29 @@
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero-browser-bar">
+      <div class="hero-browser-dots">
+        <i style="background:#c0392b"></i>
+        <i style="background:#b8860b"></i>
+        <i style="background:#27ae60"></i>
+      </div>
+      <div class="hero-browser-url">silver-skin.vercel.app</div>
+    </div>
     <div class="hero-content">
-      <div class="hero-left">
-        <p class="hero-label">Web Design for Restaurant</p>
-        <h1>飲食店のWebサイト、<br>本気で作ります。</h1>
-        <div class="hero-price-block">
-          <span class="hero-price-label">制作スタート価格</span>
-          <div class="hero-price-wrap">
-            <span class="hero-price-currency">¥</span>
-            <span class="hero-price-big">30,000</span>
-            <span class="hero-price-from">から</span>
-          </div>
-        </div>
-        <p class="hero-sub">公開前のヒアリングから公開後のフォローまで、同じ担当者が一貫して対応します。メール・チャットで丁寧に進めるため、来店・お電話は不要です。</p>
-        <div class="hero-bottom">
-          <a href="#contact" class="btn-primary">お問い合わせはこちら <span class="btn-arrow">→</span></a>
-          <p class="hero-note">返信2営業日以内 / 完全オンライン対応</p>
+      <p class="hero-label">Web Design for Restaurant</p>
+      <h1>飲食店のWebサイト、<br>本気で作ります。</h1>
+      <div class="hero-price-block">
+        <span class="hero-price-label">制作スタート価格</span>
+        <div class="hero-price-wrap">
+          <span class="hero-price-currency">¥</span>
+          <span class="hero-price-big">30,000</span>
+          <span class="hero-price-from">から</span>
         </div>
       </div>
-      <div class="hero-right">
-        <div class="mockup">
-          <div class="mockup-topbar">
-            <i></i><i></i><i></i>
-            <span class="mockup-url">お客様のサイト</span>
-          </div>
-          <div class="mockup-screen">
-            <div class="mock-slide ms1">
-              <div class="ms1-nav"><span></span><span></span><span></span></div>
-              <div class="ms1-hero"><span></span><span></span><span></span><div class="ms1-btn"></div></div>
-              <div class="ms1-body">
-                <div class="ms1-card"></div>
-                <div class="ms1-card"></div>
-                <div class="ms1-card"></div>
-              </div>
-            </div>
-            <div class="mock-slide ms2">
-              <div class="ms2-nav"><span></span><span></span><span></span></div>
-              <div class="ms2-hero"><span></span><span></span><div class="ms2-btn2"></div></div>
-              <div class="ms2-body">
-                <div class="ms2-text"><span></span><span></span><span></span><span></span></div>
-                <div class="ms2-img"></div>
-              </div>
-            </div>
-            <div class="mock-slide ms3">
-              <div class="ms3-nav"><span></span><span></span><span></span></div>
-              <div class="ms3-hero"><span></span><span></span><span></span></div>
-              <div class="ms3-body">
-                <div class="ms3-item"></div>
-                <div class="ms3-item"></div>
-                <div class="ms3-item"></div>
-                <div class="ms3-item"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="mockup-caption">制作イメージ / Sample</p>
+      <p class="hero-sub">公開前のヒアリングから公開後のフォローまで、同じ担当者が一貫して対応します。メール・チャットで丁寧に進めるため、来店・お電話は不要です。</p>
+      <div class="hero-bottom">
+        <a href="#contact" class="btn-primary">お問い合わせはこちら <span class="btn-arrow">→</span></a>
+        <p class="hero-note">返信2営業日以内 / 完全オンライン対応</p>
       </div>
     </div>
     <div class="hero-stats">
