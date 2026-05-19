@@ -1178,40 +1178,7 @@
     if (stats) observer.observe(stats);
   })();
 
-  // ── 3. テキストデコード（section-title） ───────────────
-  (function () {
-    const KANA  = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-    const ASCII = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    function rnd(ch) {
-      if (/[\s　。、・]/.test(ch)) return ch;
-      return ch.charCodeAt(0) > 255
-        ? KANA [Math.floor(Math.random() * KANA.length)]
-        : ASCII[Math.floor(Math.random() * ASCII.length)];
-    }
-    function decode(el) {
-      if (el._decoded) return;
-      el._decoded = true;
-      const saved = el.innerHTML;
-      const text  = el.textContent;
-      const FPS = 40, DUR = 900, frames = DUR / FPS;
-      let f = 0;
-      const iv = setInterval(() => {
-        f++;
-        const p = f / frames;
-        el.textContent = Array.from(text).map((ch, i) =>
-          i / text.length < p * 1.5 ? ch : rnd(ch)
-        ).join('');
-        if (p >= 1) { clearInterval(iv); el.innerHTML = saved; }
-      }, FPS);
-    }
-    const obs = new IntersectionObserver(entries =>
-      entries.forEach(e => { if (e.isIntersecting) decode(e.target); }),
-      { threshold: 0.25 }
-    );
-    document.querySelectorAll('.section-title').forEach(t => obs.observe(t));
-  })();
-
-  // ── 4. 磁気ボタン ──────────────────────────────────────
+  // ── 3. 磁気ボタン ──────────────────────────────────────
   (function () {
     document.querySelectorAll('.btn-primary').forEach(btn => {
       btn.addEventListener('mousemove', e => {
