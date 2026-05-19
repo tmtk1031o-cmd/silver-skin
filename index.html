@@ -139,6 +139,28 @@
       28%, 48% { border-color: rgba(158, 122, 82, 0.18); }
       58%, 100%{ border-color: transparent; }
     }
+    /* 左右の縦線（ページ読み込み時にゆっくり伸びる） */
+    .hero-vline {
+      position: absolute;
+      top: 88px;
+      bottom: 0;
+      width: 1.5px;
+      background: linear-gradient(to bottom, rgba(158,122,82,0.45), rgba(158,122,82,0.08));
+      pointer-events: none;
+      z-index: 0;
+      transform-origin: top;
+      transform: scaleY(0);
+      opacity: 0;
+      animation: heroVGrow 3.2s cubic-bezier(0.4, 0, 0.15, 1) 0.4s forwards;
+    }
+    .hero-vline-l { left: 52px; }
+    .hero-vline-r { right: 52px; }
+    @keyframes heroVGrow {
+      0%  { transform: scaleY(0); opacity: 0; }
+      8%  { opacity: 1; }
+      100%{ transform: scaleY(1); opacity: 1; }
+    }
+
     /* 28秒付近に現れる横線 */
     .hero-anim-line {
       height: 1px;
@@ -823,6 +845,8 @@
 
   <!-- Hero -->
   <section class="hero">
+    <span class="hero-vline hero-vline-l"></span>
+    <span class="hero-vline hero-vline-r"></span>
     <div class="hero-content">
       <p class="hero-label">Web Design for Restaurant</p>
       <div class="hero-anim-line"></div>
