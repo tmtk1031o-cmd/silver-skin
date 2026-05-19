@@ -107,6 +107,25 @@
       28%, 48% { border-color: rgba(158, 122, 82, 0.18); }
       58%, 100%{ border-color: transparent; }
     }
+    /* 28秒付近に現れる縦線 */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 12%;
+      bottom: 12%;
+      left: 50%;
+      width: 1px;
+      background: rgba(158, 122, 82, 0.28);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0;
+      animation: heroVLine 40s ease-in-out infinite;
+    }
+    @keyframes heroVLine {
+      0%, 63% { opacity: 0; }
+      70%, 78% { opacity: 1; }
+      88%, 100%{ opacity: 0; }
+    }
     .hero-content {
       flex: 1;
       padding: 80px 52px 80px;
