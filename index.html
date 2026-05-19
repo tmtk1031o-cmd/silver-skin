@@ -63,7 +63,7 @@
       position: relative;
       overflow: hidden;
     }
-    .logo span { color: var(--gray); font-weight: 300; }
+    .logo span { color: var(--white); font-weight: 300; }
     .logo::after {
       content: '';
       position: absolute;
@@ -89,10 +89,7 @@
       pointer-events: none;
     }
 
-    /* カスタムカーソル */
-    @media (pointer: fine) {
-      * { cursor: none !important; }
-    }
+    /* カスタムカーソル（デフォルトカーソルはそのまま、金ドットを追加） */
     #cursor {
       display: none;
       position: fixed;
