@@ -89,28 +89,6 @@
       pointer-events: none;
     }
 
-    /* カスタムカーソル（デフォルトカーソルはそのまま、金ドットを追加） */
-    #cursor {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: rgba(158, 122, 82, 0.85);
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.22s ease, height 0.22s ease,
-                  background 0.22s ease, border 0.22s ease;
-    }
-    #cursor.on-link {
-      width: 30px; height: 30px;
-      background: transparent;
-      border: 1px solid rgba(158, 122, 82, 0.65);
-    }
-    @media (pointer: fine) {
-      #cursor { display: block; }
-    }
     .nav-cta {
       font-size: 11px;
       letter-spacing: 0.18em;
@@ -832,7 +810,6 @@
 </head>
 <body>
   <div id="scroll-bar"></div>
-  <div id="cursor"></div>
 
   <!-- Nav -->
   <nav>
@@ -1234,22 +1211,7 @@
     document.querySelectorAll('.section-title').forEach(t => obs.observe(t));
   })();
 
-  // ── 4. カスタムカーソル ────────────────────────────────
-  (function () {
-    if (!matchMedia('(pointer: fine)').matches) return;
-    const dot = document.getElementById('cursor');
-    if (!dot) return;
-    document.addEventListener('mousemove', e => {
-      dot.style.left = e.clientX + 'px';
-      dot.style.top  = e.clientY + 'px';
-    });
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => dot.classList.add('on-link'));
-      el.addEventListener('mouseleave', () => dot.classList.remove('on-link'));
-    });
-  })();
-
-  // ── 5. 磁気ボタン ──────────────────────────────────────
+  // ── 4. 磁気ボタン ──────────────────────────────────────
   (function () {
     document.querySelectorAll('.btn-primary').forEach(btn => {
       btn.addEventListener('mousemove', e => {
