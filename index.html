@@ -11,17 +11,19 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:       #111111;
-      --black2:      #1c1c1c;
-      --gray:        #B8BEC4;
-      --gray2:       #AEB4BA;
-      --gray-dark:   #9EA4AA;
-      --white:       #FFFFFF;
-      --off:         #F7F5F2;
-      --off2:        #EFECE7;
-      --border:      #E0DDD8;
-      --border-dark: #222222;
-      --muted:       #888480;
+      --black:       #3a3530;   /* espresso */
+      --black2:      #2e2a26;   /* deeper espresso */
+      --gold:        #9e7a52;   /* coffee gold */
+      --gold2:       #8a6a44;
+      --gray:        #9e7a52;   /* gold accent (旧シルバー) */
+      --gray2:       #8a6a44;
+      --gray-dark:   #7a5e38;
+      --white:       #f2ebe0;   /* warm cream */
+      --off:         #ede5d8;
+      --off2:        #e5dccf;
+      --border:      #d0c5b4;
+      --border-dark: #4a4138;
+      --muted:       #8a7a68;
       --serif: 'Cormorant Garamond', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
       --sans:  'Inter', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
     }
@@ -47,9 +49,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 20px 52px;
-      background: rgba(17,17,17,0.97);
+      background: rgba(42,37,32,0.97);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid #1e1e1e;
+      border-bottom: 1px solid #4a4038;
     }
     .logo {
       font-family: var(--serif);
@@ -281,7 +283,7 @@
       font-family: var(--serif);
       font-size: clamp(14px, 1.4vw, 18px);
       font-weight: 300;
-      color: #aaa;
+      color: #c8bcac;
       line-height: 2.0;
       letter-spacing: 0.03em;
       margin-bottom: 48px;
@@ -312,23 +314,23 @@
     .btn-arrow { font-size: 15px; transition: inherit; }
     .hero-note {
       font-size: 12px;
-      color: #999;
+      color: #b0a494;
       letter-spacing: 0.02em;
     }
 
     /* ── Hero Stats Bar ── */
     .hero-stats {
-      border-top: 1px solid #333;
+      border-top: 1px solid #4e4540;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
     .hero-stat {
       padding: 36px 52px;
-      border-right: 1px solid #333;
+      border-right: 1px solid #4e4540;
       transition: background 0.25s;
     }
     .hero-stat:last-child { border-right: none; }
-    .hero-stat:hover { background: #181818; }
+    .hero-stat:hover { background: #312c28; }
     .hero-stat-num {
       font-family: var(--sans);
       font-size: clamp(22px, 2.5vw, 30px);
@@ -341,18 +343,18 @@
     .hero-stat-label {
       font-size: 10px;
       letter-spacing: 0.25em;
-      color: #999;
+      color: #b0a494;
       text-transform: uppercase;
       margin-bottom: 4px;
     }
-    .hero-stat-desc { font-size: 12px; color: #888; }
+    .hero-stat-desc { font-size: 12px; color: #a09080; }
 
     /* ── Marquee ── */
     .marquee {
       background: var(--black2);
       overflow: hidden;
-      border-top: 1px solid #333;
-      border-bottom: 1px solid #333;
+      border-top: 1px solid #4e4540;
+      border-bottom: 1px solid #4e4540;
       padding: 17px 0;
     }
     .marquee-track {
@@ -364,12 +366,12 @@
     .marquee-item {
       font-size: 10px;
       letter-spacing: 0.35em;
-      color: #888;
+      color: #a09080;
       text-transform: uppercase;
       padding: 0 36px;
       flex-shrink: 0;
     }
-    .marquee-sep { color: #444; padding: 0 4px; flex-shrink: 0; }
+    .marquee-sep { color: #5e5248; padding: 0 4px; flex-shrink: 0; }
     @keyframes marquee {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
@@ -501,19 +503,19 @@
     }
 
     /* ── What You Get ── */
-    .what-you-get { background: var(--gray); }
-    .what-you-get .section-line { background: var(--black); }
-    .what-you-get .section-label { color: #666; }
+    .what-you-get { background: var(--off2); }
+    .what-you-get .section-line { background: var(--gold); }
+    .what-you-get .section-label { color: var(--muted); }
     .what-you-get .section-title { color: var(--black); }
     .wyg-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: var(--gray-dark);
-      border: 1px solid var(--gray-dark);
+      background: var(--border);
+      border: 1px solid var(--border);
     }
     .wyg-item {
-      background: var(--gray);
+      background: var(--off2);
       padding: 44px 36px;
       transition: background 0.25s;
     }
@@ -534,7 +536,7 @@
       margin-bottom: 12px;
       line-height: 1.5;
     }
-    .wyg-desc { font-size: 13px; color: #555; line-height: 2.0; }
+    .wyg-desc { font-size: 13px; color: var(--muted); line-height: 2.0; }
 
     /* ── Plans ── */
     .plans { background: var(--white); }
@@ -555,11 +557,11 @@
       flex-direction: column;
     }
     .plan-card.featured { background: var(--black); }
-    .plan-card.featured .plan-badge { color: #777; }
+    .plan-card.featured .plan-badge { color: #a09080; }
     .plan-card.featured .plan-name { color: var(--white); }
     .plan-card.featured .plan-price { color: var(--white); }
-    .plan-card.featured .plan-desc { color: #888; border-bottom-color: #2a2a2a; }
-    .plan-card.featured .plan-note { color: #777; }
+    .plan-card.featured .plan-desc { color: #b8aa9a; border-bottom-color: #4e4540; }
+    .plan-card.featured .plan-note { color: #a09080; }
     .plan-badge {
       font-size: 10px;
       letter-spacing: 0.3em;
@@ -647,7 +649,7 @@
     .cost-summary-title {
       font-size: 10px;
       letter-spacing: 0.4em;
-      color: #888;
+      color: #a09080;
       text-transform: uppercase;
       margin-bottom: 24px;
     }
@@ -656,13 +658,13 @@
       justify-content: space-between;
       align-items: baseline;
       padding: 14px 0;
-      border-bottom: 1px solid #1e1e1e;
+      border-bottom: 1px solid #4e4540;
       font-size: 13px;
     }
     .cost-row:last-child { border-bottom: none; }
-    .cost-label { color: #888; }
+    .cost-label { color: #b0a090; }
     .cost-value { color: var(--white); font-feature-settings: "lnum"; font-weight: 500; }
-    .cost-note { font-size: 11px; color: #666; margin-top: 16px; line-height: 1.9; }
+    .cost-note { font-size: 11px; color: #908070; margin-top: 16px; line-height: 1.9; }
     .maint-card {
       background: var(--white);
       padding: 44px 36px;
@@ -720,13 +722,13 @@
       text-align: center;
       padding: 140px 52px;
     }
-    .contact .section-line { background: #555; }
-    .contact .section-label { color: #777; }
+    .contact .section-line { background: var(--gold); }
+    .contact .section-label { color: #a09080; }
     .contact .section-eyebrow { justify-content: center; }
     .contact .section-title { color: var(--white); margin-bottom: 20px; }
     .contact-sub {
       font-size: 14px;
-      color: #999;
+      color: #b8aa9a;
       margin-bottom: 60px;
       line-height: 2.2;
       letter-spacing: 0.03em;
@@ -736,7 +738,7 @@
       align-items: center;
       gap: 14px;
       padding: 20px 60px;
-      border: 1px solid #2a2a2a;
+      border: 1px solid var(--gold);
       color: var(--white);
       font-size: 11px;
       font-weight: 500;
@@ -745,13 +747,13 @@
       text-transform: uppercase;
       transition: all 0.3s ease;
     }
-    .btn-secondary:hover { background: var(--white); color: var(--black); border-color: var(--white); gap: 22px; }
+    .btn-secondary:hover { background: var(--gold); color: var(--black); border-color: var(--gold); gap: 22px; }
 
     /* ── Footer ── */
     footer {
       background: var(--black2);
       padding: 44px 52px;
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid #4a4038;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -763,11 +765,11 @@
       font-size: 15px;
       font-weight: 400;
       letter-spacing: 0.30em;
-      color: #777;
+      color: #a09080;
       text-transform: uppercase;
     }
-    .footer-copy { font-size: 12px; color: #666; }
-    .footer-note { font-size: 12px; color: #666; }
+    .footer-copy { font-size: 12px; color: #8a7a6a; }
+    .footer-note { font-size: 12px; color: #8a7a6a; }
 
     /* ── Responsive ── */
     @media (max-width: 1100px) {
