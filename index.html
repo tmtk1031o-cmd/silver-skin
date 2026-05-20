@@ -773,6 +773,66 @@
     }
     .btn-secondary:hover { background: var(--gold); color: var(--black); border-color: var(--gold); gap: 22px; }
 
+    /* ── Legal sections ── */
+    .legal-section {
+      background: var(--off2);
+      border-top: 1px solid var(--border);
+      padding: 72px 52px;
+    }
+    .legal-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .legal-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--black);
+      margin-bottom: 32px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-date {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .legal-table th,
+    .legal-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      text-align: left;
+    }
+    .legal-table th {
+      width: 200px;
+      color: var(--muted);
+      font-weight: 400;
+      white-space: nowrap;
+    }
+    .legal-table td { color: var(--black); }
+    .legal-block { margin-bottom: 28px; }
+    .legal-h3 {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .legal-block p {
+      font-size: 14px;
+      color: var(--black);
+      line-height: 1.85;
+    }
+
     /* ── Footer ── */
     footer {
       background: var(--black2);
@@ -794,6 +854,10 @@
     }
     .footer-copy { font-size: 12px; color: #8a7a6a; }
     .footer-note { font-size: 12px; color: #8a7a6a; }
+    .footer-links { display: flex; align-items: center; gap: 10px; }
+    .footer-link { font-size: 12px; color: #8a7a6a; text-decoration: none; }
+    .footer-link:hover { color: var(--gold); }
+    .footer-link-sep { font-size: 12px; color: #5a4a3a; }
 
     /* ── Responsive ── */
     @media (max-width: 1100px) {
@@ -1053,7 +1117,7 @@
     <div class="cost-summary">
       <p class="cost-summary-title">月々かかる費用の目安</p>
       <div class="cost-row">
-        <span class="cost-label">制作費（一括 or 2回払い）</span>
+        <span class="cost-label">制作費（着手前一括払い）</span>
         <span class="cost-value">¥30,000〜 / ¥50,000〜</span>
       </div>
       <div class="cost-row">
@@ -1064,7 +1128,7 @@
         <span class="cost-label">超過更新（月5回を超えた場合）</span>
         <span class="cost-value">¥1,000 / 回</span>
       </div>
-      <p class="cost-note">※ 制作費は着手時50%・納品時50%の2回払い（銀行振込）<br>※ 保守プランは毎月月初に銀行振込</p>
+      <p class="cost-note">※ 制作費は着手前に全額一括払い（銀行振込）<br>※ 保守プランは毎月月初に銀行振込</p>
     </div>
   </section>
 
@@ -1098,7 +1162,7 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">支払い方法は？</p>
-        <p class="faq-a">銀行振込にて承ります。制作プランは着手時50%・納品時50%の2回払いです。</p>
+        <p class="faq-a">銀行振込にて承ります。制作プランは着手前に全額一括払いです。</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">修正は何回までできますか？</p>
@@ -1114,7 +1178,7 @@
       </div>
       <div class="faq-item">
         <p class="faq-q">途中でキャンセルした場合は？</p>
-        <p class="faq-a">着手後のキャンセルは着手金（制作費の50%）が発生します。ヒアリング・見積もり段階でのキャンセルは無料です。</p>
+        <p class="faq-a">制作費は着手前に全額お支払いいただきます。着手後のキャンセルは返金できません。ヒアリング・見積もり段階でのキャンセルは無料です。</p>
       </div>
     </div>
   </section>
@@ -1133,10 +1197,80 @@
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf8OV6ipc8I4Ljy0d8QCXagxO_tiZh5-aw1Nxt5O_FXUkbPg/viewform?usp=publish-editor" target="_blank" class="btn-secondary">お問い合わせフォームへ <span class="btn-arrow">→</span></a>
   </section>
 
+  <!-- 特定商取引法に基づく表示 -->
+  <section class="legal-section" id="tokushoho">
+    <div class="legal-inner">
+      <h2 class="legal-title">特定商取引法に基づく表示</h2>
+      <table class="legal-table">
+        <tr><th>販売事業者名</th><td>Silver Skin（シルバースキン）</td></tr>
+        <tr><th>代表者名</th><td>髙見拓音</td></tr>
+        <tr><th>所在地</th><td>〒530-0015 大阪府大阪市北区中崎町</td></tr>
+        <tr><th>電話番号</th><td>※準備中（お問い合わせはフォームまたはメールにてお願いします）</td></tr>
+        <tr><th>メールアドレス</th><td>silverskinweb@gmail.com</td></tr>
+        <tr><th>サービス内容</th><td>飲食店・個人事業主向けWebサイト制作</td></tr>
+        <tr><th>販売価格</th><td>¥33,000〜¥55,000（税込）／ 保守プラン ¥6,050/月（税込）</td></tr>
+        <tr><th>支払方法</th><td>銀行振込</td></tr>
+        <tr><th>支払時期</th><td>着手前に全額一括払い</td></tr>
+        <tr><th>サービス提供時期</th><td>入金確認後、1〜4週間以内（プランによる）</td></tr>
+        <tr><th>キャンセルについて</th><td>ヒアリング・見積もり段階でのキャンセルは無料。<br>制作着手後のキャンセルは返金不可。</td></tr>
+        <tr><th>動作環境</th><td>納品物はモダンブラウザ（Chrome・Safari・Firefox最新版）対応</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- プライバシーポリシー -->
+  <section class="legal-section" id="privacy">
+    <div class="legal-inner">
+      <h2 class="legal-title">プライバシーポリシー</h2>
+      <p class="legal-date">制定日：2026年5月</p>
+
+      <div class="legal-block">
+        <h3 class="legal-h3">1. 収集する個人情報</h3>
+        <p>お問い合わせフォームを通じて、氏名・メールアドレス・電話番号・店舗名・ご要望内容を収集します。</p>
+      </div>
+
+      <div class="legal-block">
+        <h3 class="legal-h3">2. 利用目的</h3>
+        <p>収集した個人情報は、お問い合わせへの返答・サービスのご提供・業務上の連絡のみに利用します。</p>
+      </div>
+
+      <div class="legal-block">
+        <h3 class="legal-h3">3. 第三者への提供</h3>
+        <p>法令に基づく場合を除き、お客様の個人情報を第三者に提供・開示することはありません。</p>
+      </div>
+
+      <div class="legal-block">
+        <h3 class="legal-h3">4. 外部サービスの利用</h3>
+        <p>本サイトはGoogle Fonts（フォント配信）およびGoogleフォーム（お問い合わせ受付）を使用しています。これらのサービスにおける個人情報の取り扱いは、各社のプライバシーポリシーに準じます。</p>
+      </div>
+
+      <div class="legal-block">
+        <h3 class="legal-h3">5. 安全管理</h3>
+        <p>収集した個人情報は適切に管理し、漏洩・紛失・不正アクセスの防止に努めます。</p>
+      </div>
+
+      <div class="legal-block">
+        <h3 class="legal-h3">6. 開示・訂正・削除のご請求</h3>
+        <p>ご本人から個人情報の開示・訂正・削除のご請求があった場合、合理的な範囲で速やかに対応します。下記お問い合わせ先までご連絡ください。</p>
+      </div>
+
+      <div class="legal-block">
+        <h3 class="legal-h3">7. お問い合わせ窓口</h3>
+        <p>Silver Skin（代表：髙見拓音）<br>
+        E-mail：silverskinweb@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p class="footer-logo">Silver Skin</p>
     <p class="footer-note">飲食店・個人事業主専門のWeb制作</p>
+    <div class="footer-links">
+      <a href="#tokushoho" class="footer-link">特定商取引法に基づく表示</a>
+      <span class="footer-link-sep">|</span>
+      <a href="#privacy" class="footer-link">プライバシーポリシー</a>
+    </div>
     <p class="footer-copy">&copy; 2026 Silver Skin</p>
   </footer>
 
